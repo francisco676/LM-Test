@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Cowork Just 10x'd My Team's Productivity</title>
+    <meta name="description" content="How we moved our entire workflow to Claude Cowork and efficiency skyrocketed. Get the complete setup guide with 5 ready-to-use templates.">
+    <meta property="og:title" content="Claude Cowork Just 10x'd My Team's Productivity">
+    <meta property="og:description" content="Most teams are using AI wrong. Here's how Claude Cowork changes everything.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1c1c21;
+            --bg-card-hover: #232329;
+            --border: #27272a;
+            --border-bright: #3f3f46;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #c084fc;
+            --accent-bright: #d8b4fe;
+            --accent-dim: #7c3aed;
+            --accent-glow: rgba(192, 132, 252, 0.15);
+            --green: #4ade80;
+            --green-dim: rgba(74, 222, 128, 0.1);
+            --orange: #fb923c;
+            --blue: #60a5fa;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === AMBIENT BACKGROUND === */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .ambient-bg .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.07;
+            animation: float 20s ease-in-out infinite;
+        }
+        .ambient-bg .orb:nth-child(1) {
+            width: 600px; height: 600px;
+            background: var(--accent);
+            top: -200px; left: -100px;
+            animation-delay: 0s;
+        }
+        .ambient-bg .orb:nth-child(2) {
+            width: 500px; height: 500px;
+            background: var(--blue);
+            top: 40%; right: -150px;
+            animation-delay: -7s;
+            animation-duration: 25s;
+        }
+        .ambient-bg .orb:nth-child(3) {
+            width: 400px; height: 400px;
+            background: var(--accent);
+            bottom: -100px; left: 30%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -40px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* === LAYOUT === */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === NAV === */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 9, 11, 0.8);
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: -0.02em;
+        }
+        .nav-dot {
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+        .nav-cta {
+            font-size: 13px;
+            color: var(--accent-bright);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--accent-dim);
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .nav-cta:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+        }
+
+        /* === HERO === */
+        .hero {
+            padding: 80px 0 60px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--green-dim);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .hero-badge .pulse {
+            width: 6px; height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 52px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 580px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === DIVIDER === */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+            margin: 0;
+        }
+
+        /* === PROBLEM SECTION === */
+        .section {
+            padding: 64px 0;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .body-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .callout-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--orange);
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin: 32px 0;
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .callout-box strong {
+            color: var(--text-primary);
+        }
+
+        /* === FEATURES === */
+        .features-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feature-card:hover {
+            border-color: var(--border-bright);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* === USE CASES === */
+        .use-cases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .use-case {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .use-case:hover {
+            border-color: var(--border-bright);
+            background: var(--bg-card-hover);
+        }
+        .use-case .icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 560px) {
+            .use-cases { grid-template-columns: 1fr; }
+        }
+
+        /* === STAT BANNER === */
+        .stat-banner {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(124, 58, 237, 0.08) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            margin: 24px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .stat-number {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .stat-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        /* === GUIDE SECTION === */
+        .guide-content {
+            margin-top: 28px;
+        }
+        .guide-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .guide-item:last-child { border-bottom: none; }
+        .guide-check {
+            width: 22px; height: 22px;
+            background: var(--green-dim);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            font-size: 12px;
+            color: var(--green);
+        }
+        .guide-text {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .guide-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+        .cta-card {
+            background: linear-gradient(160deg, rgba(124, 58, 237, 0.12) 0%, var(--bg-card) 40%, rgba(96, 165, 250, 0.08) 100%);
+            border: 1px solid var(--accent-dim);
+            border-radius: 24px;
+            padding: 56px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            bottom: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.06;
+        }
+        .cta-card h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin-bottom: 16px;
+        }
+        .cta-card .body-text {
+            max-width: 480px;
+            margin: 0 auto 36px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--accent-dim), #6d28d9);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+            letter-spacing: -0.01em;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(124, 58, 237, 0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        .cta-button svg {
+            transition: transform 0.2s;
+        }
+        .cta-button:hover svg {
+            transform: translateX(3px);
+        }
+
+        .cta-subtext {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+        }
+        .footer-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .footer-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* === SCROLL ANIMATIONS === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="ambient-bg">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <div class="nav-brand">
+            <div class="nav-dot"></div>
+            AI EGC & GTM
+        </div>
+        <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="nav-cta" target="_blank" rel="noopener">Book a Demo →</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="pulse"></span>
+            Real results from our team
+        </div>
+        <h1>Claude Cowork Just <span class="highlight">10x'd My Team's</span> Productivity & Output</h1>
+        <p class="hero-sub">We moved our entire workflow to Claude Cowork and efficiency skyrocketed. Here's exactly how — and why most teams are getting AI completely wrong.</p>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section class="section">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">The Problem</span>
+            <h2>Most teams are using AI wrong.</h2>
+            <p class="body-text">They treat it like a search engine. Ask a question, get an answer, start over. Every session starts from zero — no context, no continuity, no collaboration.</p>
+            <div class="callout-box">
+                <strong>That's why adoption fails.</strong> Your team tries AI, gets mediocre results, and goes back to the old way. Not because AI isn't powerful — but because the workflow is broken.
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUTION -->
+<section class="section">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">The Solution</span>
+            <h2>Claude Cowork changes everything.</h2>
+            <p class="body-text">It's not a chatbot. It's a workspace where your entire team collaborates with AI. Persistent, shared, and built for real work.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <div class="feature-title">Persistent Context</div>
+                    <div class="feature-desc">Claude remembers your projects, your brand, your goals. No more re-explaining everything every session.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <div class="feature-title">Shared Workspaces</div>
+                    <div class="feature-desc">Your whole team works together in one space. Marketing, product, research — everyone on the same page.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📋</span>
+                    <div class="feature-title">Project Management Built In</div>
+                    <div class="feature-desc">Track progress, manage deliverables, and keep work organized without switching between tools.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <div class="feature-title">No More Copy-Paste</div>
+                    <div class="feature-desc">Everything lives in one place. Stop juggling tabs and losing context between tools.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- USE CASES -->
+<section class="section">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">How We Use It</span>
+            <h2>From strategy to execution — in one workspace.</h2>
+            <p class="body-text">Every high-leverage activity our team runs now flows through Claude Cowork.</p>
+
+            <div class="use-cases">
+                <div class="use-case">
+                    <span class="icon">📝</span>
+                    Content Strategy
+                </div>
+                <div class="use-case">
+                    <span class="icon">🗺️</span>
+                    Product Roadmap
+                </div>
+                <div class="use-case">
+                    <span class="icon">🔍</span>
+                    Customer Research
+                </div>
+                <div class="use-case">
+                    <span class="icon">🚀</span>
+                    Campaign Brainstorms
+                </div>
+            </div>
+
+            <div class="stat-banner">
+                <div class="stat-number">3→1</div>
+                <div class="stat-desc">What took 3 meetings now takes 1 hour.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUIDE -->
+<section class="section">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Free Setup Guide</span>
+            <h2>Everything you need to implement this with your team.</h2>
+            <p class="body-text">I built a complete setup guide showing exactly how we did it. No fluff — just the system.</p>
+
+            <div class="guide-content">
+                <div class="guide-item">
+                    <div class="guide-check">✓</div>
+                    <div class="guide-text"><strong>5 ready-to-use templates</strong> — Drop them into your workspace and start producing immediately</div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-check">✓</div>
+                    <div class="guide-text"><strong>Workflow maps</strong> for content, product, and research — See exactly how each team function plugs in</div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-check">✓</div>
+                    <div class="guide-text"><strong>Real examples from our team</strong> — Not theory, actual outputs we've shipped</div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-check">✓</div>
+                    <div class="guide-text"><strong>Step-by-step implementation plan</strong> — Go from zero to fully operational in one week</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="reveal">
+            <div class="cta-card">
+                <span class="section-label">Ready to Transform Your Team?</span>
+                <h2>Stop using AI as a solo tool.<br>Start using it as a <span style="color: var(--accent-bright);">team multiplier.</span></h2>
+                <p class="body-text">If you're still leaving money on the table with basic AI usage, let's fix that. Learn how AI-powered EGC and GTM can revolutionize your workflow.</p>
+
+                <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="cta-button" target="_blank" rel="noopener">
+                    Book a Demo
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="cta-subtext">Want to learn more about AI EGC and GTM? Let's talk.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p class="footer-text">Built with conviction. Powered by <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" target="_blank" rel="noopener">AI EGC & GTM</a>.</p>
+    </div>
+</footer>
+
+<script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
