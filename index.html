@@ -5,804 +5,1228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claude Cowork Setup Guide — 10x Your Team's Productivity</title>
     <meta name="description" content="The complete Claude Cowork setup guide: 5 templates, workflow maps, real examples, and a step-by-step implementation plan.">
-    <meta property="og:title" content="Claude Cowork Setup Guide — 10x Your Team's Productivity">
-    <meta property="og:description" content="5 ready-to-use templates, workflow maps, real examples, and a step-by-step implementation plan.">
-    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#09090b;--bg2:#18181b;--card:#1c1c21;--card-h:#232329;
+            --brd:#27272a;--brd2:#3f3f46;
+            --t1:#fafafa;--t2:#a1a1aa;--t3:#71717a;
+            --ac:#c084fc;--ac2:#d8b4fe;--ac3:#7c3aed;--acg:rgba(192,132,252,.15);
+            --gr:#4ade80;--grd:rgba(74,222,128,.08);
+            --or:#fb923c;--bl:#60a5fa;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-        :root {
-            --bg-primary: #09090b;
-            --bg-secondary: #18181b;
-            --bg-card: #1c1c21;
-            --bg-card-hover: #232329;
-            --border: #27272a;
-            --border-bright: #3f3f46;
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #c084fc;
-            --accent-bright: #d8b4fe;
-            --accent-dim: #7c3aed;
-            --accent-glow: rgba(192, 132, 252, 0.15);
-            --green: #4ade80;
-            --green-dim: rgba(74, 222, 128, 0.08);
-            --orange: #fb923c;
-            --blue: #60a5fa;
-        }
+        .ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+        .ambient .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.07;animation:fl 20s ease-in-out infinite}
+        .ambient .orb:nth-child(1){width:600px;height:600px;background:var(--ac);top:-200px;left:-100px}
+        .ambient .orb:nth-child(2){width:500px;height:500px;background:var(--bl);top:40%;right:-150px;animation-delay:-7s;animation-duration:25s}
+        .ambient .orb:nth-child(3){width:400px;height:400px;background:var(--ac);bottom:-100px;left:30%;animation-delay:-14s}
+        @keyframes fl{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.05)}66%{transform:translate(-20px,20px) scale(.95)}}
 
-        html { scroll-behavior: smooth; }
+        .ctn{max-width:760px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* NAV */
+        nav{padding:20px 0;border-bottom:1px solid var(--brd);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;background:rgba(9,9,11,.8)}
+        nav .ctn{display:flex;align-items:center;justify-content:space-between}
+        .nav-b{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.02em}
+        .nav-d{width:8px;height:8px;background:var(--ac);border-radius:50%;box-shadow:0 0 12px var(--ac)}
+        .nav-c{font-size:13px;color:var(--ac2);text-decoration:none;padding:8px 16px;border:1px solid var(--ac3);border-radius:8px;transition:all .2s;font-weight:500}
+        .nav-c:hover{background:var(--acg);border-color:var(--ac)}
 
-        /* === AMBIENT === */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .ambient-bg .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.07;
-            animation: float 20s ease-in-out infinite;
-        }
-        .ambient-bg .orb:nth-child(1) {
-            width: 600px; height: 600px;
-            background: var(--accent);
-            top: -200px; left: -100px;
-        }
-        .ambient-bg .orb:nth-child(2) {
-            width: 500px; height: 500px;
-            background: var(--blue);
-            top: 40%; right: -150px;
-            animation-delay: -7s;
-            animation-duration: 25s;
-        }
-        .ambient-bg .orb:nth-child(3) {
-            width: 400px; height: 400px;
-            background: var(--accent);
-            bottom: -100px; left: 30%;
-            animation-delay: -14s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -40px) scale(1.05); }
-            66% { transform: translate(-20px, 20px) scale(0.95); }
-        }
+        /* HERO */
+        .hero{padding:80px 0 64px}
+        .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--grd);border:1px solid rgba(74,222,128,.2);border-radius:100px;font-size:13px;font-weight:500;color:var(--gr);margin-bottom:32px;animation:fiu .6s ease-out}
+        .badge .pls{width:6px;height:6px;background:var(--gr);border-radius:50%;animation:pls 2s ease-in-out infinite}
+        @keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+        h1{font-size:clamp(34px,6vw,50px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;animation:fiu .6s ease-out .1s both}
+        h1 .hl{background:linear-gradient(135deg,var(--ac2),var(--ac),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-s{font-size:18px;color:var(--t2);line-height:1.7;max-width:600px;animation:fiu .6s ease-out .2s both}
+        @keyframes fiu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-        /* === LAYOUT === */
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
+        /* SHARED */
+        .dv{height:1px;background:linear-gradient(90deg,transparent,var(--brd2),transparent)}
+        .sc{padding:64px 0}
+        .sl{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--ac);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
+        h2{font-size:clamp(24px,4vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
+        .bt{font-size:16px;color:var(--t2);line-height:1.8;margin-bottom:16px}
 
-        /* === NAV === */
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(9, 9, 11, 0.8);
-        }
-        nav .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 15px;
-            letter-spacing: -0.02em;
-        }
-        .nav-dot {
-            width: 8px; height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--accent);
-        }
-        .nav-cta {
-            font-size: 13px;
-            color: var(--accent-bright);
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--accent-dim);
-            border-radius: 8px;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-        .nav-cta:hover {
-            background: var(--accent-glow);
-            border-color: var(--accent);
-        }
+        /* TOC */
+        .toc{margin-top:32px;display:grid;gap:10px}
+        .toc a{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--brd);border-radius:14px;text-decoration:none;color:var(--t1);transition:all .2s;font-weight:500;font-size:15px}
+        .toc a:hover{border-color:var(--brd2);background:var(--card-h);transform:translateX(4px)}
+        .toc-n{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);background:var(--acg);border:1px solid rgba(124,58,237,.25);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .toc-a{margin-left:auto;color:var(--t3);font-size:13px;transition:color .2s}
+        .toc a:hover .toc-a{color:var(--ac)}
 
-        /* === HERO === */
-        .hero {
-            padding: 80px 0 64px;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            background: var(--green-dim);
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--green);
-            margin-bottom: 32px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        .hero-badge .pulse {
-            width: 6px; height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
-        }
-        h1 {
-            font-size: clamp(34px, 6vw, 50px);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
-        }
-        h1 .highlight {
-            background: linear-gradient(135deg, var(--accent-bright), var(--accent), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-sub {
-            font-size: 18px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 580px;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* ACCORDION */
+        .acc{margin-top:28px}
+        .acc-item{border:1px solid var(--brd);border-radius:16px;margin-bottom:12px;overflow:hidden;background:var(--card);transition:border-color .3s}
+        .acc-item.open{border-color:var(--brd2)}
+        .acc-head{display:flex;align-items:center;gap:16px;padding:22px 24px;cursor:pointer;user-select:none;transition:background .2s;width:100%;border:none;background:none;color:var(--t1);font-family:inherit;font-size:16px;text-align:left}
+        .acc-head:hover{background:var(--card-h)}
+        .acc-icon{font-size:20px;flex-shrink:0}
+        .acc-info{flex:1}
+        .acc-title{font-weight:600;font-size:16px;margin-bottom:2px}
+        .acc-sub{font-size:13px;color:var(--t3);font-weight:400}
+        .acc-chev{width:20px;height:20px;color:var(--t3);transition:transform .3s;flex-shrink:0}
+        .acc-item.open .acc-chev{transform:rotate(180deg);color:var(--ac)}
+        .acc-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
+        .acc-inner{padding:0 24px 28px;border-top:1px solid var(--brd)}
 
-        /* === SHARED === */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
-        }
-        .section { padding: 64px 0; }
-        .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: clamp(26px, 4vw, 34px);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-        }
-        .body-text {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
+        /* TEMPLATE CONTENT */
+        .tmpl-section{margin-top:20px}
+        .tmpl-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+        .tmpl-label::before{content:'';width:6px;height:6px;background:var(--ac);border-radius:50%}
+        .tmpl-steps{counter-reset:step}
+        .tmpl-step{counter-increment:step;padding:10px 0;font-size:14px;color:var(--t2);line-height:1.7;display:flex;gap:12px}
+        .tmpl-step::before{content:counter(step)".";font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ac);font-weight:500;min-width:24px;padding-top:1px}
+        .prompt-block{background:#0d0d12;border:1px solid var(--brd);border-radius:12px;padding:20px;margin:16px 0;position:relative;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--t2);line-height:1.8;white-space:pre-wrap;word-wrap:break-word;max-height:400px;overflow-y:auto}
+        .prompt-block::-webkit-scrollbar{width:6px}
+        .prompt-block::-webkit-scrollbar-track{background:transparent}
+        .prompt-block::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:3px}
+        .copy-btn{position:absolute;top:12px;right:12px;background:var(--brd);border:1px solid var(--brd2);color:var(--t2);padding:6px 12px;border-radius:6px;font-size:11px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .2s;z-index:2}
+        .copy-btn:hover{background:var(--brd2);color:var(--t1)}
+        .copy-btn.copied{background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.3);color:var(--gr)}
+        .tmpl-tip{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-radius:10px;padding:14px 18px;margin-top:16px;font-size:13px;color:var(--t2);line-height:1.6}
+        .tmpl-tip strong{color:var(--or)}
 
-        /* === TEMPLATE CARDS === */
-        .templates-grid {
-            display: grid;
-            gap: 2px;
-            margin: 36px 0 0;
-            background: var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .template-card {
-            background: var(--bg-card);
-            padding: 32px 30px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            transition: background 0.2s;
-        }
-        .template-card:hover { background: var(--bg-card-hover); }
-        .template-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--accent);
-            background: var(--accent-glow);
-            border: 1px solid rgba(124, 58, 237, 0.25);
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .template-info { flex: 1; }
-        .template-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            letter-spacing: -0.01em;
-        }
-        .template-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        /* WORKFLOW */
+        .wf-map{margin:20px 0;background:#0d0d12;border:1px solid var(--brd);border-radius:12px;padding:24px;overflow-x:auto}
+        .wf-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .wf-flow:last-child{margin-bottom:0}
+        .wf-node{padding:8px 16px;background:var(--card);border:1px solid var(--brd);border-radius:8px;font-size:13px;font-weight:500;white-space:nowrap}
+        .wf-node.active{border-color:var(--ac3);background:var(--acg);color:var(--ac2)}
+        .wf-node.output{border-color:rgba(74,222,128,.3);background:var(--grd);color:var(--gr)}
+        .wf-arrow{color:var(--t3);font-size:14px;flex-shrink:0}
+        .wf-row-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;margin-top:16px}
+        .wf-row-label:first-child{margin-top:0}
 
-        /* === WORKFLOW SECTION === */
-        .workflow-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
-        }
-        @media (max-width: 600px) {
-            .workflow-grid { grid-template-columns: 1fr; }
-        }
-        .workflow-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 24px;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .workflow-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 20%; right: 20%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .workflow-card:hover {
-            border-color: var(--border-bright);
-            transform: translateY(-3px);
-        }
-        .workflow-card:hover::before { opacity: 1; }
-        .workflow-icon {
-            font-size: 28px;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .workflow-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .workflow-steps {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        .workflow-steps span {
-            display: block;
-        }
+        /* EXAMPLES */
+        .ex-card{background:#0d0d12;border:1px solid var(--brd);border-radius:12px;padding:24px;margin-top:16px}
+        .ex-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+        .ex-title{font-size:16px;font-weight:600;margin-bottom:10px}
+        .ex-body{font-size:14px;color:var(--t2);line-height:1.7}
+        .ex-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+        @media(max-width:500px){.ex-metrics{grid-template-columns:1fr}}
+        .ex-metric{padding:12px 16px;background:var(--card);border:1px solid var(--brd);border-radius:10px}
+        .ex-metric-label{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.04em;font-family:'JetBrains Mono',monospace}
+        .ex-metric-val{font-size:20px;font-weight:700;color:var(--gr);margin-top:4px}
+        .ex-before-after{margin-top:16px;display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+        @media(max-width:500px){.ex-before-after{grid-template-columns:1fr;text-align:center}}
+        .ex-ba-box{padding:14px 18px;border-radius:10px;font-size:14px}
+        .ex-before{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);color:#fca5a5}
+        .ex-after{background:var(--grd);border:1px solid rgba(74,222,128,.2);color:var(--gr)}
+        .ex-ba-arrow{color:var(--t3);font-size:20px;font-weight:700}
+        .ex-ba-label{font-size:11px;text-transform:uppercase;letter-spacing:.04em;font-family:'JetBrains Mono',monospace;opacity:.7;margin-bottom:4px}
 
-        /* === EXAMPLES SECTION === */
-        .example-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px 30px;
-            margin-top: 20px;
-            position: relative;
-        }
-        .example-card + .example-card { margin-top: 14px; }
-        .example-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .example-label::before {
-            content: '';
-            width: 6px; height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-        .example-title {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .example-body {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        .example-result {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            font-size: 14px;
-            color: var(--green);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        /* TIMELINE */
+        .tl{margin-top:28px;position:relative;padding-left:28px}
+        .tl::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--ac3),var(--gr));border-radius:2px}
+        .tl-s{position:relative;padding:0 0 32px 28px}
+        .tl-s:last-child{padding-bottom:0}
+        .tl-dot{position:absolute;left:-24px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--ac3);z-index:1}
+        .tl-s:last-child .tl-dot{border-color:var(--gr);box-shadow:0 0 12px rgba(74,222,128,.3)}
+        .tl-day{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);font-weight:500;margin-bottom:6px}
+        .tl-s:last-child .tl-day{color:var(--gr)}
+        .tl-title{font-size:16px;font-weight:600;margin-bottom:8px}
+        .tl-desc{font-size:14px;color:var(--t3);line-height:1.7}
+        .tl-tasks{margin-top:12px}
+        .tl-task{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:13px;color:var(--t2)}
+        .tl-check{color:var(--gr);font-size:14px;margin-top:2px;flex-shrink:0}
 
-        /* === IMPLEMENTATION TIMELINE === */
-        .timeline {
-            margin-top: 36px;
-            position: relative;
-            padding-left: 28px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 8px;
-            bottom: 8px;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent-dim), var(--green));
-            border-radius: 2px;
-        }
-        .timeline-step {
-            position: relative;
-            padding: 0 0 36px 28px;
-        }
-        .timeline-step:last-child { padding-bottom: 0; }
-        .timeline-dot {
-            position: absolute;
-            left: -24px;
-            top: 4px;
-            width: 16px; height: 16px;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            border: 2px solid var(--accent-dim);
-            z-index: 1;
-        }
-        .timeline-step:last-child .timeline-dot {
-            border-color: var(--green);
-            box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
-        }
-        .timeline-day {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-        .timeline-step:last-child .timeline-day { color: var(--green); }
-        .timeline-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .timeline-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        /* STAT */
+        .stat{background:linear-gradient(135deg,var(--card) 0%,rgba(124,58,237,.08) 100%);border:1px solid var(--brd);border-radius:20px;padding:48px 40px;text-align:center;margin:48px 0 0;position:relative;overflow:hidden}
+        .stat::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
+        .stat-n{font-size:clamp(48px,8vw,72px);font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,var(--t1),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px}
+        .stat-d{font-size:17px;color:var(--t2)}
 
-        /* === STAT BANNER === */
-        .stat-banner {
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(124, 58, 237, 0.08) 100%);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 48px 40px;
-            text-align: center;
-            margin: 48px 0 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .stat-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 20%; right: 20%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        .stat-number {
-            font-size: clamp(48px, 8vw, 72px);
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-bright));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 12px;
-        }
-        .stat-desc {
-            font-size: 17px;
-            color: var(--text-secondary);
-        }
+        /* CTA */
+        .cta-sc{padding:80px 0 100px}
+        .cta-card{background:linear-gradient(160deg,rgba(124,58,237,.12) 0%,var(--card) 40%,rgba(96,165,250,.08) 100%);border:1px solid var(--ac3);border-radius:24px;padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+        .cta-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
+        .cta-card::after{content:'';position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:var(--ac);border-radius:50%;filter:blur(150px);opacity:.06}
+        .cta-card h2{margin-bottom:16px}
+        .cta-card .bt{max-width:480px;margin:0 auto 36px}
+        .cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:linear-gradient(135deg,var(--ac3),#6d28d9);color:#fff;text-decoration:none;font-size:16px;font-weight:600;border-radius:14px;transition:all .3s;position:relative;z-index:1;box-shadow:0 0 30px rgba(124,58,237,.3),inset 0 1px 0 rgba(255,255,255,.1);letter-spacing:-.01em}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(124,58,237,.5),inset 0 1px 0 rgba(255,255,255,.15)}
+        .cta-btn svg{transition:transform .2s}
+        .cta-btn:hover svg{transform:translateX(3px)}
+        .cta-sub{font-size:13px;color:var(--t3);margin-top:16px}
 
-        /* === CTA === */
-        .cta-section {
-            padding: 80px 0 100px;
-        }
-        .cta-card {
-            background: linear-gradient(160deg, rgba(124, 58, 237, 0.12) 0%, var(--bg-card) 40%, rgba(96, 165, 250, 0.08) 100%);
-            border: 1px solid var(--accent-dim);
-            border-radius: 24px;
-            padding: 56px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 10%; right: 10%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        .cta-card::after {
-            content: '';
-            position: absolute;
-            bottom: -200px; left: 50%;
-            transform: translateX(-50%);
-            width: 500px; height: 500px;
-            background: var(--accent);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.06;
-        }
-        .cta-card h2 { margin-bottom: 16px; }
-        .cta-card .body-text {
-            max-width: 480px;
-            margin: 0 auto 36px;
-        }
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            background: linear-gradient(135deg, var(--accent-dim), #6d28d9);
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 14px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-            letter-spacing: -0.01em;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 50px rgba(124, 58, 237, 0.5), inset 0 1px 0 rgba(255,255,255,0.15);
-        }
-        .cta-button svg { transition: transform 0.2s; }
-        .cta-button:hover svg { transform: translateX(3px); }
-        .cta-subtext {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 16px;
-        }
+        footer{border-top:1px solid var(--brd);padding:32px 0;text-align:center}
+        .ft{font-size:13px;color:var(--t3)}
+        .ft a{color:var(--ac);text-decoration:none}
 
-        /* === FOOTER === */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 32px 0;
-            text-align: center;
-        }
-        .footer-text {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .footer-text a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
 
-        /* === ANIMATIONS === */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media(max-width:600px){
+            .wf-flow{gap:6px}
+            .wf-node{padding:6px 10px;font-size:12px}
+            .ex-before-after{grid-template-columns:1fr}
+            .cta-card{padding:40px 24px}
         }
     </style>
 </head>
 <body>
 
-<div class="ambient-bg">
-    <div class="orb"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
-</div>
+<div class="ambient"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
 
-<!-- NAV -->
 <nav>
-    <div class="container">
-        <div class="nav-brand">
-            <div class="nav-dot"></div>
-            AI EGC & GTM
-        </div>
-        <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="nav-cta" target="_blank" rel="noopener">Book a Demo →</a>
+    <div class="ctn">
+        <div class="nav-b"><div class="nav-d"></div>AI EGC & GTM</div>
+        <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="nav-c" target="_blank" rel="noopener">Book a Demo →</a>
     </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="container">
-        <div class="hero-badge">
-            <span class="pulse"></span>
-            Free Setup Guide
-        </div>
-        <h1>Everything You Need to <span class="highlight">Implement This</span> With Your Team</h1>
-        <p class="hero-sub">I built a complete setup guide showing exactly how we did it. No fluff — just the system that 10x'd our team's productivity and output.</p>
+    <div class="ctn">
+        <div class="badge"><span class="pls"></span>Free Setup Guide</div>
+        <h1>The Complete <span class="hl">Claude Cowork</span> Setup Guide</h1>
+        <p class="hero-s">5 ready-to-use templates, workflow maps for content/product/research, real examples, and a step-by-step implementation plan. Everything you need — no fluff, just the system.</p>
     </div>
 </section>
 
-<div class="divider"></div>
+<div class="dv"></div>
 
-<!-- SECTION 1: 5 TEMPLATES -->
-<section class="section">
-    <div class="container">
+<!-- TABLE OF CONTENTS -->
+<section class="sc">
+    <div class="ctn">
         <div class="reveal">
-            <span class="section-label">01 — Ready-to-Use Templates</span>
-            <h2>5 templates you can drop in and start producing immediately.</h2>
-            <p class="body-text">No blank-page syndrome. Each template is battle-tested from our own workflow — just plug in your context and go.</p>
-
-            <div class="templates-grid">
-                <div class="template-card">
-                    <div class="template-num">01</div>
-                    <div class="template-info">
-                        <div class="template-title">Content Strategy Engine</div>
-                        <div class="template-desc">Turn a single topic into a full multi-channel content plan — blog, social, email — in under 30 minutes.</div>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-num">02</div>
-                    <div class="template-info">
-                        <div class="template-title">Product Roadmap Builder</div>
-                        <div class="template-desc">Synthesize customer feedback, market signals, and team input into a prioritized quarterly roadmap.</div>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-num">03</div>
-                    <div class="template-info">
-                        <div class="template-title">Customer Research Synthesizer</div>
-                        <div class="template-desc">Feed in raw interview notes and survey data — get structured insights, patterns, and action items.</div>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-num">04</div>
-                    <div class="template-info">
-                        <div class="template-title">Campaign Brainstorm Accelerator</div>
-                        <div class="template-desc">Go from brief to 20+ campaign concepts with messaging variants, audience angles, and creative hooks.</div>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-num">05</div>
-                    <div class="template-info">
-                        <div class="template-title">Weekly Team Sync Optimizer</div>
-                        <div class="template-desc">Pre-populate agendas, auto-summarize updates, and generate action items so meetings actually move work forward.</div>
-                    </div>
-                </div>
+            <span class="sl">What's Inside</span>
+            <h2>Jump to any section</h2>
+            <div class="toc">
+                <a href="#templates"><span class="toc-n">01</span>5 Ready-to-Use Templates<span class="toc-a">Prompts + SOPs ↓</span></a>
+                <a href="#workflows"><span class="toc-n">02</span>Workflow Maps<span class="toc-a">Content · Product · Research ↓</span></a>
+                <a href="#examples"><span class="toc-n">03</span>Real Examples & Outputs<span class="toc-a">3 Case Studies ↓</span></a>
+                <a href="#plan"><span class="toc-n">04</span>7-Day Implementation Plan<span class="toc-a">Day-by-Day ↓</span></a>
             </div>
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
+<div class="dv"></div>
 
+<!-- ============================================================ -->
+<!-- SECTION 1: TEMPLATES -->
+<!-- ============================================================ -->
+<section class="sc" id="templates">
+    <div class="ctn">
+        <div class="reveal">
+            <span class="sl">01 — Ready-to-Use Templates</span>
+            <h2>Drop these into your workspace and start producing immediately.</h2>
+            <p class="bt">Each template includes a copy-paste prompt and step-by-step instructions. Click to expand.</p>
+
+            <div class="acc">
+
+                <!-- TEMPLATE 1 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">📝</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Template 1: Content Strategy Engine</div>
+                            <div class="acc-sub">Turn 1 topic into a full multi-channel content plan</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">How to Use</div>
+                            <div class="tmpl-steps">
+                                <div class="tmpl-step">Create a new project in Claude Cowork called "Content Engine — [Topic/Campaign Name]".</div>
+                                <div class="tmpl-step">Upload your brand voice doc, audience personas, and any existing top-performing content as project knowledge.</div>
+                                <div class="tmpl-step">Paste the prompt below into the project chat.</div>
+                                <div class="tmpl-step">Review the output. Ask Claude to expand any section — e.g. "Write the full LinkedIn post for angle #3."</div>
+                                <div class="tmpl-step">Use the project as a living workspace — add team members so writers, designers, and social managers can all pull from the same source.</div>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Copy-Paste Prompt</div>
+                            <div class="prompt-block" id="p1">You are a senior content strategist. I need a comprehensive multi-channel content plan.
+
+**CORE TOPIC:** [Insert your topic or key message]
+
+**TARGET AUDIENCE:** [Insert audience — e.g. "B2B SaaS founders, Series A-C, 20-200 employees"]
+
+**GOAL:** [Insert goal — e.g. "Drive demo bookings" / "Build thought leadership" / "Launch product awareness"]
+
+**BRAND VOICE:** [Insert 2-3 adjectives — e.g. "Bold, practical, zero-fluff"]
+
+---
+
+Please generate the following:
+
+## 1. Content Angles (5-7 unique angles)
+For each angle provide:
+- Hook (1 sentence that stops the scroll)
+- Core argument
+- Target emotion
+- Best channel for this angle
+
+## 2. Blog Post Outlines (3 posts)
+For each:
+- SEO-optimized title (include primary keyword)
+- Meta description (155 chars)
+- H2 structure with key points under each
+- Internal/external linking suggestions
+- CTA recommendation
+
+## 3. LinkedIn Posts (5 posts)
+For each:
+- Full post text (hook + body + CTA)
+- Suggested posting day/time
+- Engagement prompt (question or poll idea)
+
+## 4. Email Sequence (3-email nurture)
+For each email:
+- Subject line (A/B options)
+- Preview text
+- Full body copy
+- CTA button text
+
+## 5. Twitter/X Thread (1 thread, 8-12 tweets)
+- Full thread with numbering
+- Include a visual/screenshot suggestion for tweet 1
+
+## 6. Short-Form Video Scripts (2 scripts)
+- 60-second format
+- Hook (first 3 seconds), body, CTA
+- On-screen text suggestions
+
+Ensure all content is consistent in messaging but adapted to each channel's native format and audience expectations.<button class="copy-btn" onclick="copyPrompt('p1',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After generating, tell Claude "Now create a content calendar for the next 4 weeks using all of the above" — it will schedule everything since it has the full context in the project.</div>
+
+                    </div></div>
+                </div>
+
+                <!-- TEMPLATE 2 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🗺️</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Template 2: Product Roadmap Builder</div>
+                            <div class="acc-sub">Synthesize signals into a prioritized quarterly roadmap</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">How to Use</div>
+                            <div class="tmpl-steps">
+                                <div class="tmpl-step">Create a project called "Product Roadmap — [Quarter/Year]".</div>
+                                <div class="tmpl-step">Upload: customer feedback docs, support ticket summaries, competitor analysis, sales call notes, and any existing roadmap.</div>
+                                <div class="tmpl-step">Invite your PM, engineering lead, and design lead to the project so everyone can iterate together.</div>
+                                <div class="tmpl-step">Paste the prompt below. Claude will synthesize all uploaded context.</div>
+                                <div class="tmpl-step">Use follow-ups like "Reprioritize assuming we lose 2 engineers" or "What if we push the enterprise tier to Q3?"</div>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Copy-Paste Prompt</div>
+                            <div class="prompt-block" id="p2">You are a senior product manager. Using all the context in this project (customer feedback, support data, competitor intel, sales notes), build a quarterly product roadmap.
+
+**QUARTER:** [e.g. Q3 2025]
+**TEAM SIZE:** [e.g. "3 engineers, 1 designer, 1 PM"]
+**COMPANY STAGE:** [e.g. "Series B, 5K customers, PLG motion"]
+**NORTH STAR METRIC:** [e.g. "Weekly active teams" / "Net revenue retention"]
+
+---
+
+Please generate:
+
+## 1. Signal Synthesis
+- Top 10 themes from customer feedback (ranked by frequency + revenue impact)
+- Top 5 competitive gaps
+- Top 3 internal pain points from the team
+
+## 2. Opportunity Scoring
+For each of the top 10 themes, score on:
+- Impact (1-10): How much does this move the north star metric?
+- Confidence (1-10): How sure are we this matters?
+- Effort (T-shirt size): XS / S / M / L / XL
+- Calculate ICE score and rank
+
+## 3. Recommended Roadmap
+Organize into:
+- **Must-haves** (non-negotiable this quarter)
+- **Should-haves** (high impact, schedule permitting)
+- **Nice-to-haves** (opportunistic wins)
+- **Explicitly NOT doing** (and why — this is critical for alignment)
+
+For each item:
+- 1-paragraph scope description
+- Success metric
+- Dependencies
+- Estimated timeline (weeks)
+
+## 4. Sprint Breakdown
+- Suggested 2-week sprint plan for the first 6 weeks
+- Key milestones and review points
+
+## 5. Stakeholder Summary
+- 1-page executive summary suitable for a board update
+- 3 talking points for the sales team
+- 3 talking points for customer success<button class="copy-btn" onclick="copyPrompt('p2',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> Keep this project alive all quarter. After each sprint, paste your retro notes and ask Claude to "Update the roadmap based on what we learned." The persistent context means it gets smarter every iteration.</div>
+
+                    </div></div>
+                </div>
+
+                <!-- TEMPLATE 3 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🔍</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Template 3: Customer Research Synthesizer</div>
+                            <div class="acc-sub">Turn raw interviews & survey data into structured insights</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">How to Use</div>
+                            <div class="tmpl-steps">
+                                <div class="tmpl-step">Create a project called "Research Synthesis — [Research Initiative Name]".</div>
+                                <div class="tmpl-step">Upload all raw data: interview transcripts, survey CSVs, NPS comments, support tickets, Gong call recordings (transcripts), G2 reviews.</div>
+                                <div class="tmpl-step">Paste the prompt below. Claude will process everything in the project context.</div>
+                                <div class="tmpl-step">Ask follow-ups like "Deep dive into the onboarding friction theme" or "Create a persona based on Segment 2."</div>
+                                <div class="tmpl-step">Share the project with your team — anyone can ask Claude questions about the research data directly.</div>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Copy-Paste Prompt</div>
+                            <div class="prompt-block" id="p3">You are a senior UX researcher and strategist. Analyze all the customer research data in this project and produce a comprehensive synthesis.
+
+**RESEARCH GOAL:** [e.g. "Understand why trial-to-paid conversion dropped 15% in Q2"]
+**CUSTOMER SEGMENT:** [e.g. "Mid-market teams, 50-500 employees"]
+**DATA SOURCES IN THIS PROJECT:** [List what you uploaded — e.g. "23 interview transcripts, NPS survey (n=847), 156 support tickets, 12 churned customer exit interviews"]
+
+---
+
+Please generate:
+
+## 1. Executive Summary
+- 3-paragraph overview a CEO can read in 2 minutes
+- Top 3 findings with confidence levels (High/Medium/Low)
+- Recommended immediate actions
+
+## 2. Theme Analysis
+Identify the top 8-10 themes. For each:
+- Theme name and 1-sentence description
+- Frequency (how many data points support this)
+- Severity (how much it impacts the user experience, 1-5)
+- Representative quotes (2-3 verbatim quotes per theme)
+- Affected user segments
+
+## 3. User Segments
+- Identify 3-4 distinct behavioral segments from the data
+- For each: demographics, goals, frustrations, current workarounds
+- Which segment is highest priority and why
+
+## 4. Journey Map
+- Map the current user journey from awareness → activation → retention
+- Identify friction points at each stage (backed by data)
+- Emotional state at each stage
+
+## 5. Competitive Context
+- Where did users mention alternatives? What were they?
+- What are users getting from competitors that they're not getting from us?
+
+## 6. Recommendations
+- Prioritized list of 5-7 recommendations
+- For each: what to do, expected impact, effort estimate, and supporting evidence
+- Quick wins (< 1 week) vs. strategic bets (1+ month)
+
+## 7. Appendix
+- Full quote bank organized by theme
+- Data methodology notes
+- Gaps in the research (what we still don't know)<button class="copy-btn" onclick="copyPrompt('p3',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After synthesis, ask "Create a 10-slide presentation deck summarizing these findings for the leadership team." Claude will structure the full deck with speaker notes since it has all the context.</div>
+
+                    </div></div>
+                </div>
+
+                <!-- TEMPLATE 4 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🚀</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Template 4: Campaign Brainstorm Accelerator</div>
+                            <div class="acc-sub">Go from brief to 20+ campaign concepts in one session</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">How to Use</div>
+                            <div class="tmpl-steps">
+                                <div class="tmpl-step">Create a project called "Campaign — [Campaign Name]".</div>
+                                <div class="tmpl-step">Upload: creative brief, brand guidelines, audience data, past campaign performance data, competitor campaigns you admire.</div>
+                                <div class="tmpl-step">Invite the full campaign team — marketing, creative, product marketing, sales.</div>
+                                <div class="tmpl-step">Paste the prompt. Review the concepts as a team in real-time.</div>
+                                <div class="tmpl-step">Ask Claude to "Develop concept #4 into a full campaign plan" or "Combine concepts #2 and #7 into a hybrid approach."</div>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Copy-Paste Prompt</div>
+                            <div class="prompt-block" id="p4">You are an award-winning creative strategist. Generate a comprehensive campaign brainstorm based on the brief below and all project context.
+
+**CAMPAIGN OBJECTIVE:** [e.g. "Launch new enterprise tier — drive 200 qualified demos in 60 days"]
+**TARGET AUDIENCE:** [e.g. "VP Engineering and CTO at companies with 200-2000 employees"]
+**KEY MESSAGE:** [e.g. "The only AI workspace built for teams, not individuals"]
+**BUDGET RANGE:** [e.g. "$50K-$100K"]
+**CHANNELS AVAILABLE:** [e.g. "LinkedIn Ads, Google Ads, Email, Webinars, Content, Partnerships"]
+**TIMELINE:** [e.g. "8 weeks"]
+**COMPETITIVE CONTEXT:** [e.g. "Competing against ChatGPT Enterprise and internal AI tools"]
+
+---
+
+Please generate:
+
+## 1. Strategic Foundation
+- Campaign positioning statement (1 sentence)
+- 3 core value propositions (ranked by uniqueness)
+- Emotional driver analysis: What feeling drives the purchase decision?
+- Messaging hierarchy: Primary → Secondary → Tertiary messages
+
+## 2. Campaign Concepts (Generate 5 distinct concepts)
+For each concept:
+- Concept name (catchy, memorable)
+- Big idea (1 sentence)
+- Tagline options (3 per concept)
+- Hero visual description
+- Channel strategy (which channels, why)
+- Content pieces needed (list specific deliverables)
+- Estimated split of budget
+- Why this works (strategic rationale)
+
+## 3. Messaging Variants
+For the top concept, create:
+- Awareness-stage messaging (cold audience)
+- Consideration-stage messaging (warm audience)
+- Decision-stage messaging (hot leads)
+- Each with: headline, body copy, CTA
+
+## 4. Content Calendar
+- Week-by-week breakdown for 8 weeks
+- Specific deliverables per week
+- Dependencies and deadlines
+
+## 5. Measurement Framework
+- KPIs per channel
+- Weekly targets
+- Definition of qualified demo
+- Attribution model recommendation
+
+## 6. Risk Assessment
+- Top 3 risks to campaign success
+- Mitigation plan for each
+- Plan B if primary concept underperforms by week 3<button class="copy-btn" onclick="copyPrompt('p4',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After the brainstorm, ask "Now write the creative brief for our designer based on Concept #[X]." Since Claude has all the context, it will produce a brief that actually contains everything the designer needs.</div>
+
+                    </div></div>
+                </div>
+
+                <!-- TEMPLATE 5 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">⚡</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Template 5: Weekly Team Sync Optimizer</div>
+                            <div class="acc-sub">Cut meeting time in half while doubling alignment</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">How to Use</div>
+                            <div class="tmpl-steps">
+                                <div class="tmpl-step">Create a persistent project called "Team Syncs — [Team Name]" that lives across weeks.</div>
+                                <div class="tmpl-step">Before each meeting: team members paste their async updates into the project chat (what they shipped, what's blocked, what's next).</div>
+                                <div class="tmpl-step">Run the Pre-Meeting prompt 30 minutes before the sync.</div>
+                                <div class="tmpl-step">Use the generated agenda to run a focused 30-minute meeting instead of a 60-minute ramble.</div>
+                                <div class="tmpl-step">After the meeting, run the Post-Meeting prompt to generate action items and update the project.</div>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Pre-Meeting Prompt</div>
+                            <div class="prompt-block" id="p5a">Based on all async updates shared in this project this week, generate:
+
+## 1. Meeting Agenda (30 minutes max)
+- Pre-populated with the 3-5 most important discussion topics
+- For each: context summary, key decision needed, time allocation
+- Flag any cross-team dependencies or blockers
+
+## 2. Progress Snapshot
+- What shipped this week (celebrate wins)
+- What's in progress (expected completion)
+- What's blocked (and suggested unblock actions)
+
+## 3. Metrics Update
+- Pull any numbers mentioned in updates
+- Compare to last week's targets (if available in project history)
+- Flag anything off-track
+
+## 4. Decisions Needed
+- List decisions that require live discussion (can't be async)
+- For each: provide context, options, and a recommended path
+
+Keep the agenda tight. If it can be decided async, flag it as "async decision" and suggest who should own it.<button class="copy-btn" onclick="copyPrompt('p5a',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-section">
+                            <div class="tmpl-label">Post-Meeting Prompt</div>
+                            <div class="prompt-block" id="p5b">Based on the meeting discussion above, generate:
+
+## 1. Meeting Summary (3-5 bullet points)
+- Key decisions made
+- Important context shared
+
+## 2. Action Items
+For each action item:
+- What needs to be done (specific and measurable)
+- Who owns it
+- Deadline
+- Dependencies
+
+## 3. Parking Lot
+- Topics raised but not resolved
+- Suggested async follow-up plan
+
+## 4. Next Week Preview
+- Based on this week's progress, what should next week's priorities be?
+- Any upcoming deadlines or milestones to flag
+
+Update the project context with these decisions and action items so they carry forward to next week's sync.<button class="copy-btn" onclick="copyPrompt('p5b',this)">Copy</button></div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> The magic of this template is persistence. By week 4, Claude has a full history of your team's velocity, recurring blockers, and decision patterns. Ask it "What patterns do you see in our blockers over the past month?" and watch it surface insights no human would have tracked.</div>
+
+                    </div></div>
+                </div>
+
+            </div><!-- /acc -->
+        </div>
+    </div>
+</section>
+
+<div class="dv"></div>
+
+<!-- ============================================================ -->
 <!-- SECTION 2: WORKFLOW MAPS -->
-<section class="section">
-    <div class="container">
+<!-- ============================================================ -->
+<section class="sc" id="workflows">
+    <div class="ctn">
         <div class="reveal">
-            <span class="section-label">02 — Workflow Maps</span>
+            <span class="sl">02 — Workflow Maps</span>
             <h2>See exactly how each team function plugs in.</h2>
-            <p class="body-text">Three complete workflow maps showing how content, product, and research teams operate inside Claude Cowork — from input to shipped output.</p>
+            <p class="bt">Three complete workflow maps showing how work flows through Claude Cowork — from input to shipped output.</p>
 
-            <div class="workflow-grid">
-                <div class="workflow-card">
-                    <span class="workflow-icon">📝</span>
-                    <div class="workflow-title">Content</div>
-                    <div class="workflow-steps">
-                        <span>Ideation →</span>
-                        <span>Briefs →</span>
-                        <span>Drafts →</span>
-                        <span>Review →</span>
-                        <span>Publish</span>
-                    </div>
+            <div class="acc">
+
+                <!-- WORKFLOW: CONTENT -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">📝</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Content Team Workflow</div>
+                            <div class="acc-sub">From ideation to published — 5 stages</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="wf-map">
+                            <div class="wf-row-label">Stage 1 → Ideation</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Market signals</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Customer questions</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">SEO data</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Content Angles</span>
+                            </div>
+                            <div class="wf-row-label">Stage 2 → Briefs</div>
+                            <div class="wf-flow">
+                                <span class="wf-node active">Top angles</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Full brief per piece</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Team reviews in shared project</span>
+                            </div>
+                            <div class="wf-row-label">Stage 3 → Drafts</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Approved brief</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: First draft</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Human: Edit & add voice</span>
+                            </div>
+                            <div class="wf-row-label">Stage 4 → Review</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Draft in project</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Team feedback (inline)</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Revisions</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Final approval</span>
+                            </div>
+                            <div class="wf-row-label">Stage 5 → Publish & Repurpose</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Published piece</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Social snippets + email + thread</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">Multi-channel output ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> The entire flow lives in one project. Claude has context from ideation through to repurposing, so the social posts actually reference the blog's key arguments — no manual briefing needed.</div>
+
+                    </div></div>
                 </div>
-                <div class="workflow-card">
-                    <span class="workflow-icon">🗺️</span>
-                    <div class="workflow-title">Product</div>
-                    <div class="workflow-steps">
-                        <span>Research →</span>
-                        <span>Prioritize →</span>
-                        <span>Spec →</span>
-                        <span>Build →</span>
-                        <span>Ship</span>
-                    </div>
+
+                <!-- WORKFLOW: PRODUCT -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🗺️</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Product Team Workflow</div>
+                            <div class="acc-sub">From research to shipped feature — 5 stages</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="wf-map">
+                            <div class="wf-row-label">Stage 1 → Research</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Customer interviews</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Support tickets</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Usage analytics</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Signal synthesis</span>
+                            </div>
+                            <div class="wf-row-label">Stage 2 → Prioritize</div>
+                            <div class="wf-flow">
+                                <span class="wf-node active">Synthesized themes</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: ICE scoring</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">PM + Eng lead align in project</span>
+                            </div>
+                            <div class="wf-row-label">Stage 3 → Spec</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Prioritized feature</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: PRD draft</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Team review + edge cases</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Final spec</span>
+                            </div>
+                            <div class="wf-row-label">Stage 4 → Build</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Approved spec</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Engineering builds</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: QA test cases + docs</span>
+                            </div>
+                            <div class="wf-row-label">Stage 5 → Ship</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Feature complete</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Release notes + changelog + help docs</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">Shipped ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> When Claude writes the release notes, it already knows the user pain points (from Stage 1), the trade-offs you made (Stage 2), and the exact spec (Stage 3). Release comms that actually explain the "why" — automatically.</div>
+
+                    </div></div>
                 </div>
-                <div class="workflow-card">
-                    <span class="workflow-icon">🔍</span>
-                    <div class="workflow-title">Research</div>
-                    <div class="workflow-steps">
-                        <span>Collect →</span>
-                        <span>Synthesize →</span>
-                        <span>Analyze →</span>
-                        <span>Recommend →</span>
-                        <span>Act</span>
-                    </div>
+
+                <!-- WORKFLOW: RESEARCH -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🔍</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Research Team Workflow</div>
+                            <div class="acc-sub">From raw data to board-ready recommendations — 5 stages</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="wf-map">
+                            <div class="wf-row-label">Stage 1 → Collect</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Interviews</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Surveys</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Reviews</span>
+                                <span class="wf-arrow">+</span>
+                                <span class="wf-node">Support data</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Upload to Claude project</span>
+                            </div>
+                            <div class="wf-row-label">Stage 2 → Synthesize</div>
+                            <div class="wf-flow">
+                                <span class="wf-node active">Claude: Theme extraction</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Quote banking</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Segment identification</span>
+                            </div>
+                            <div class="wf-row-label">Stage 3 → Analyze</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Research team validates themes</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Journey mapping + gap analysis</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Cross-reference with quant data</span>
+                            </div>
+                            <div class="wf-row-label">Stage 4 → Recommend</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Validated insights</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Prioritized recommendations</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node active">Claude: Stakeholder deck</span>
+                            </div>
+                            <div class="wf-row-label">Stage 5 → Act</div>
+                            <div class="wf-flow">
+                                <span class="wf-node">Approved recommendations</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Feed into Product Roadmap project</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">Research → Action ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> The Research project feeds directly into the Product Roadmap project. When the PM asks "What evidence supports this feature?", Claude can reference the actual customer quotes and data — because it's all connected.</div>
+
+                    </div></div>
                 </div>
+
             </div>
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
+<div class="dv"></div>
 
+<!-- ============================================================ -->
 <!-- SECTION 3: REAL EXAMPLES -->
-<section class="section">
-    <div class="container">
+<!-- ============================================================ -->
+<section class="sc" id="examples">
+    <div class="ctn">
         <div class="reveal">
-            <span class="section-label">03 — Real Examples</span>
+            <span class="sl">03 — Real Examples & Outputs</span>
             <h2>Not theory — actual outputs we've shipped.</h2>
-            <p class="body-text">Here's what this looks like in practice, pulled directly from our workspace.</p>
+            <p class="bt">Three case studies from our team showing exactly what went in, what came out, and the results.</p>
 
-            <div class="example-card">
-                <div class="example-label">Content Strategy</div>
-                <div class="example-title">Turned 1 product launch into 47 pieces of content</div>
-                <div class="example-body">Fed the launch brief into our Content Strategy Engine template. Claude Cowork generated blog posts, social threads, email sequences, and ad copy — all with consistent messaging and brand voice, across the entire team.</div>
-                <div class="example-result">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    What normally takes 2 weeks → done in 1 afternoon
-                </div>
-            </div>
+            <div class="acc">
 
-            <div class="example-card">
-                <div class="example-label">Customer Research</div>
-                <div class="example-title">Synthesized 83 customer interviews into 5 key insights</div>
-                <div class="example-body">Uploaded raw transcripts into a shared workspace. The team collaborated with Claude to tag themes, surface patterns, and build an actionable insights deck — together, in real time.</div>
-                <div class="example-result">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    From raw data to board-ready presentation in 3 hours
-                </div>
-            </div>
+                <!-- EXAMPLE 1 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">📝</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Turned 1 Product Launch Into 47 Content Pieces</div>
+                            <div class="acc-sub">Content Strategy Engine in action</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
 
-            <div class="example-card">
-                <div class="example-label">Campaign Brainstorm</div>
-                <div class="example-title">Generated Q2 campaign strategy in a single working session</div>
-                <div class="example-body">Marketing, product, and sales joined one shared Cowork session. Started with objectives, iterated on concepts together with Claude, and left with a complete campaign framework including messaging, channels, and timelines.</div>
-                <div class="example-result">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    3 alignment meetings eliminated — decided in 1 hour
+                        <div class="ex-card">
+                            <div class="ex-label">The Setup</div>
+                            <div class="ex-body">We were launching a new enterprise collaboration tier. Normally this would take the content team 2-3 weeks: brief the writers, wait for drafts, do rounds of revisions, then manually repurpose for each channel. Instead, we created a single Claude Cowork project, uploaded the product brief, feature spec, customer testimonials, and competitive positioning doc.</div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What We Fed In</div>
+                            <div class="ex-body">
+                                → Product launch brief (2 pages)<br>
+                                → Feature spec with screenshots<br>
+                                → 8 customer testimonials from beta users<br>
+                                → Competitive analysis (us vs. 3 competitors)<br>
+                                → Brand voice guidelines<br>
+                                → Past top-performing content (5 blog posts, 10 LinkedIn posts with engagement data)
+                            </div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What Came Out</div>
+                            <div class="ex-body">
+                                → 3 long-form blog posts (1,500-2,500 words each) with SEO titles, meta descriptions, and internal linking<br>
+                                → 12 LinkedIn posts — mix of storytelling, data-driven, and controversial takes<br>
+                                → 5-email nurture sequence with A/B subject lines<br>
+                                → 1 Twitter/X thread (12 tweets) that got 340K impressions<br>
+                                → 3 short-form video scripts (60-second format)<br>
+                                → 15 social media variations for paid ads (headline + body + CTA combinations)<br>
+                                → 4 case study outlines based on the beta testimonials<br>
+                                → 1 webinar outline with slide structure and talk track<br>
+                                → 4-week content calendar with posting schedule
+                            </div>
+                        </div>
+
+                        <div class="ex-metrics">
+                            <div class="ex-metric"><div class="ex-metric-label">Content pieces</div><div class="ex-metric-val">47</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Time to produce</div><div class="ex-metric-val">1 afternoon</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Team members involved</div><div class="ex-metric-val">2</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Revision rounds</div><div class="ex-metric-val">1</div></div>
+                        </div>
+
+                        <div class="ex-before-after">
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>2-3 weeks, 5 people, multiple tools</div>
+                            <div class="ex-ba-arrow">→</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>1 afternoon, 2 people, one workspace</div>
+                        </div>
+
+                    </div></div>
                 </div>
+
+                <!-- EXAMPLE 2 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🔍</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Synthesized 83 Customer Interviews in 3 Hours</div>
+                            <div class="acc-sub">Customer Research Synthesizer in action</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="ex-card">
+                            <div class="ex-label">The Setup</div>
+                            <div class="ex-body">Our trial-to-paid conversion dropped 15% in Q2. We had tons of data but no time to process it — 83 customer interviews, 847 NPS responses, 156 support tickets from churned accounts, and 12 exit interviews. Previously, a research consultant quoted us 4 weeks and $18K to synthesize this. We uploaded everything to a Claude Cowork project instead.</div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What We Fed In</div>
+                            <div class="ex-body">
+                                → 83 interview transcripts (Zoom auto-transcripts, ~45 min each)<br>
+                                → NPS survey export (847 responses with open-text comments)<br>
+                                → 156 support tickets tagged "churned" from Intercom<br>
+                                → 12 exit interview transcripts<br>
+                                → Product analytics summary (activation funnel, feature usage)<br>
+                                → Previous quarter's research findings (for comparison)
+                            </div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What Came Out</div>
+                            <div class="ex-body">
+                                → Executive summary identifying the core issue: onboarding complexity was the #1 churn driver (not pricing, which is what we assumed)<br>
+                                → 9 distinct themes, ranked by frequency and severity, each with 3-5 supporting verbatim quotes<br>
+                                → 4 user segments with detailed personas, goals, and frustrations<br>
+                                → Full journey map showing 6 friction points — 3 of which we had no idea existed<br>
+                                → Prioritized recommendation list: #1 was "simplify the first-run experience" which we shipped in 3 weeks<br>
+                                → 15-slide leadership deck with speaker notes<br>
+                                → Quote bank of 200+ organized quotes the sales team now uses in calls
+                            </div>
+                        </div>
+
+                        <div class="ex-metrics">
+                            <div class="ex-metric"><div class="ex-metric-label">Data points processed</div><div class="ex-metric-val">1,098</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Time to insight</div><div class="ex-metric-val">3 hours</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Key finding</div><div class="ex-metric-val">Onboarding ≠ Pricing</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Conversion recovery</div><div class="ex-metric-val">+22% in 6 weeks</div></div>
+                        </div>
+
+                        <div class="ex-before-after">
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>4 weeks + $18K consultant quote</div>
+                            <div class="ex-ba-arrow">→</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>3 hours, done in-house, better output</div>
+                        </div>
+
+                    </div></div>
+                </div>
+
+                <!-- EXAMPLE 3 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🚀</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Built Q2 Campaign Strategy in a Single Session</div>
+                            <div class="acc-sub">Campaign Brainstorm Accelerator in action</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="ex-card">
+                            <div class="ex-label">The Setup</div>
+                            <div class="ex-body">Marketing, product marketing, and sales needed to align on the Q2 campaign. Previously this was 3 separate meetings: brainstorm, alignment, and planning — spread over 2 weeks. We booked one 90-minute session, opened a shared Claude Cowork project with all three teams present, and ran the Campaign Brainstorm template live.</div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What We Fed In</div>
+                            <div class="ex-body">
+                                → Q1 campaign results (what worked, what didn't, CAC by channel)<br>
+                                → Q2 objectives and targets from leadership<br>
+                                → Updated ICPs from the research synthesis (from Example 2 above — same project ecosystem)<br>
+                                → Competitor campaign screenshots and positioning<br>
+                                → Budget allocation framework<br>
+                                → Sales team's top 5 objections from the field
+                            </div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What Came Out</div>
+                            <div class="ex-body">
+                                → 5 distinct campaign concepts — the team voted on #2 ("The Team Multiplier") in real-time<br>
+                                → Full messaging framework: awareness → consideration → decision, with copy for each stage<br>
+                                → Channel strategy with budget splits and weekly targets<br>
+                                → 8-week content calendar with specific deliverables and owners<br>
+                                → Objection-handling playbook (tied directly to the sales objections we uploaded)<br>
+                                → Measurement framework with KPIs, weekly review cadence, and a "kill criteria" — if metrics hit X by week 3, we pivot<br>
+                                → Creative brief for the design team, ready to hand off immediately
+                            </div>
+                        </div>
+
+                        <div class="ex-metrics">
+                            <div class="ex-metric"><div class="ex-metric-label">Meetings eliminated</div><div class="ex-metric-val">3 → 1</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Time to complete strategy</div><div class="ex-metric-val">90 minutes</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Departments aligned</div><div class="ex-metric-val">3</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Ready to execute</div><div class="ex-metric-val">Same day</div></div>
+                        </div>
+
+                        <div class="ex-before-after">
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>3 meetings over 2 weeks, misalignment</div>
+                            <div class="ex-ba-arrow">→</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>1 session, full alignment, ready to ship</div>
+                        </div>
+
+                    </div></div>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
+<div class="dv"></div>
 
-<!-- SECTION 4: STEP BY STEP -->
-<section class="section">
-    <div class="container">
+<!-- ============================================================ -->
+<!-- SECTION 4: IMPLEMENTATION PLAN -->
+<!-- ============================================================ -->
+<section class="sc" id="plan">
+    <div class="ctn">
         <div class="reveal">
-            <span class="section-label">04 — Implementation Plan</span>
+            <span class="sl">04 — 7-Day Implementation Plan</span>
             <h2>Go from zero to fully operational in one week.</h2>
-            <p class="body-text">A day-by-day plan so you're not guessing. Follow the steps, ship the system.</p>
+            <p class="bt">A day-by-day plan with specific tasks. Follow the steps, ship the system.</p>
 
-            <div class="timeline">
-                <div class="timeline-step">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-day">Day 1–2</div>
-                    <div class="timeline-title">Set Up Your Workspace</div>
-                    <div class="timeline-desc">Create your team workspace, configure project structure, and import the 5 templates. Get everyone access and oriented.</div>
+            <div class="tl">
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 1 — Foundation</div>
+                    <div class="tl-title">Set Up Your Workspace Architecture</div>
+                    <div class="tl-desc">Build the project structure your team will live in.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Create your Claude Cowork team workspace</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create 4 core projects: "Content Engine", "Product Roadmap", "Research Hub", "Team Syncs"</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload brand voice doc, audience personas, and company overview to each relevant project</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Invite your team — assign at least 2 people per project to start</div>
+                    </div>
                 </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-day">Day 3–4</div>
-                    <div class="timeline-title">Run Your First Workflows</div>
-                    <div class="timeline-desc">Pick one real project per team. Follow the workflow maps. Ship something real so the team sees immediate value.</div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 2 — Context Loading</div>
+                    <div class="tl-title">Feed Claude Everything It Needs to Be Useful</div>
+                    <div class="tl-desc">This is the step most teams skip — and why their AI results are mediocre.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload your top 10 performing content pieces to the Content Engine project</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload customer research, support ticket exports, and NPS data to the Research Hub</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload existing product roadmap, feature specs, and sprint retros to Product Roadmap</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Add competitor analysis docs and positioning to relevant projects</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Test each project with a simple question to verify Claude has absorbed the context</div>
+                    </div>
                 </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-day">Day 5</div>
-                    <div class="timeline-title">Build Persistent Context</div>
-                    <div class="timeline-desc">Feed Claude your brand guidelines, product docs, customer personas, and past work. This is where it stops feeling like a tool and starts feeling like a team member.</div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 3 — First Templates</div>
+                    <div class="tl-title">Run Your First Two Templates on Real Work</div>
+                    <div class="tl-desc">Don't practice — use real projects. You'll see value immediately.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 1 (Content Strategy Engine) on an upcoming launch or campaign</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 5 (Weekly Team Sync) for your next team meeting</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Have each team member interact with the project — ask follow-up questions, request iterations</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Document what surprised you (good and bad) — this informs Day 5 optimization</div>
+                    </div>
                 </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-day">Day 6–7</div>
-                    <div class="timeline-title">Scale & Optimize</div>
-                    <div class="timeline-desc">Expand to all team functions. Customize templates to your specific needs. Establish review cadences. You're now operating at 10x.</div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 4 — Deeper Workflows</div>
+                    <div class="tl-title">Run the Remaining Templates</div>
+                    <div class="tl-desc">Now that the team has muscle memory, tackle the complex ones.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 2 (Product Roadmap Builder) with your PM and eng lead</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 3 (Customer Research Synthesizer) on any existing research data</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 4 (Campaign Brainstorm) with cross-functional team present</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Notice how the projects start connecting — research informs product informs content</div>
+                    </div>
+                </div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 5 — Optimize</div>
+                    <div class="tl-title">Customize and Create Your Own Templates</div>
+                    <div class="tl-desc">Adapt the system to your team's specific needs.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Modify prompts based on Day 3-4 learnings — add your terminology, adjust output formats</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create 1-2 custom templates for workflows unique to your team</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Set up project naming conventions and folder structure for scale</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Identify which team members are power users — they'll train the rest</div>
+                    </div>
+                </div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 6 — Integrate</div>
+                    <div class="tl-title">Connect Cowork to Your Existing Stack</div>
+                    <div class="tl-desc">Make Claude Cowork the hub, not another silo.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Establish a workflow for moving outputs from Cowork → your publishing tools</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Set up a cadence: when does the team update project context? (Weekly? After each sprint?)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create a "New Hire Onboarding" project so new team members can get up to speed via Claude</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Define what stays in Cowork vs. what lives in other tools</div>
+                    </div>
+                </div>
+
+                <div class="tl-s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-day">Day 7 — Launch</div>
+                    <div class="tl-title">You're Operational. Now Scale.</div>
+                    <div class="tl-desc">The system is live. Here's how to keep the momentum.</div>
+                    <div class="tl-tasks">
+                        <div class="tl-task"><span class="tl-check">✓</span>Run your first fully AI-augmented team sync using Template 5</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Measure: count hours saved this week vs. last week on equivalent work</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Share wins internally — nothing drives adoption like visible results</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Set a 30-day review to assess: what's working, what's not, what to automate further</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="stat-banner">
-                <div class="stat-number">3 → 1</div>
-                <div class="stat-desc">What took 3 meetings now takes 1 hour.</div>
+            <div class="stat">
+                <div class="stat-n">3 → 1</div>
+                <div class="stat-d">What took 3 meetings now takes 1 hour.</div>
             </div>
+
         </div>
     </div>
 </section>
 
-<div class="divider"></div>
+<div class="dv"></div>
 
 <!-- CTA -->
-<section class="cta-section">
-    <div class="container">
+<section class="cta-sc">
+    <div class="ctn">
         <div class="reveal">
             <div class="cta-card">
-                <span class="section-label">Ready to Transform Your Team?</span>
-                <h2>Stop using AI as a solo tool.<br>Start using it as a <span style="color: var(--accent-bright);">team multiplier.</span></h2>
-                <p class="body-text">If you're still leaving money on the table with basic AI usage, let's fix that. Learn how AI-powered EGC and GTM can revolutionize your workflow.</p>
-
-                <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="cta-button" target="_blank" rel="noopener">
+                <span class="sl">Ready to Transform Your Team?</span>
+                <h2>Stop using AI as a solo tool.<br>Start using it as a <span style="color:var(--ac2)">team multiplier.</span></h2>
+                <p class="bt" style="max-width:480px;margin:0 auto 36px">If you're still leaving money on the table with basic AI usage, let's fix that. Learn how AI-powered EGC and GTM can revolutionize your workflow.</p>
+                <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="cta-btn" target="_blank" rel="noopener">
                     Book a Demo
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
-                <p class="cta-subtext">Want to learn more about AI EGC and GTM? Let's talk.</p>
+                <p class="cta-sub">Want to learn more about AI EGC and GTM? Let's talk.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <div class="container">
-        <p class="footer-text">Built with conviction. Powered by <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" target="_blank" rel="noopener">AI EGC & GTM</a>.</p>
+    <div class="ctn">
+        <p class="ft">Built with conviction. Powered by <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" target="_blank" rel="noopener">AI EGC & GTM</a>.</p>
     </div>
 </footer>
 
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function toggleAcc(btn){
+    const item=btn.closest('.acc-item');
+    const body=item.querySelector('.acc-body');
+    const inner=item.querySelector('.acc-inner');
+    const isOpen=item.classList.contains('open');
+
+    // Close all others in same accordion
+    item.closest('.acc').querySelectorAll('.acc-item.open').forEach(o=>{
+        if(o!==item){
+            o.classList.remove('open');
+            o.querySelector('.acc-body').style.maxHeight='0';
+        }
+    });
+
+    if(isOpen){
+        item.classList.remove('open');
+        body.style.maxHeight='0';
+    }else{
+        item.classList.add('open');
+        body.style.maxHeight=inner.scrollHeight+'px';
+    }
+}
+
+function copyPrompt(id,btn){
+    const el=document.getElementById(id);
+    // Get text content excluding the button
+    const clone=el.cloneNode(true);
+    const btns=clone.querySelectorAll('.copy-btn');
+    btns.forEach(b=>b.remove());
+    const text=clone.textContent.trim();
+
+    navigator.clipboard.writeText(text).then(()=>{
+        btn.textContent='Copied!';
+        btn.classList.add('copied');
+        setTimeout(()=>{
+            btn.textContent='Copy';
+            btn.classList.remove('copied');
+        },2000);
+    });
+}
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 </body>
