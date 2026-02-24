@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Cowork Setup Guide — 10x Your Team's Productivity</title>
-    <meta name="description" content="The complete Claude Cowork setup guide: 5 templates, workflow maps, real examples, and a step-by-step implementation plan.">
+    <title>The EGC Playbook — Turn Every Employee Into a Content Engine</title>
+    <meta name="description" content="The complete Employee-Generated Content setup guide: 5 templates, workflow maps, real examples, and a 7-day implementation plan. Powered by Claude Cowork.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
 
         .ctn{max-width:760px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-        /* NAV */
         nav{padding:20px 0;border-bottom:1px solid var(--brd);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;background:rgba(9,9,11,.8)}
         nav .ctn{display:flex;align-items:center;justify-content:space-between}
         .nav-b{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.02em}
@@ -38,24 +37,21 @@
         .nav-c{font-size:13px;color:var(--ac2);text-decoration:none;padding:8px 16px;border:1px solid var(--ac3);border-radius:8px;transition:all .2s;font-weight:500}
         .nav-c:hover{background:var(--acg);border-color:var(--ac)}
 
-        /* HERO */
         .hero{padding:80px 0 64px}
         .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--grd);border:1px solid rgba(74,222,128,.2);border-radius:100px;font-size:13px;font-weight:500;color:var(--gr);margin-bottom:32px;animation:fiu .6s ease-out}
         .badge .pls{width:6px;height:6px;background:var(--gr);border-radius:50%;animation:pls 2s ease-in-out infinite}
         @keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
         h1{font-size:clamp(34px,6vw,50px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;animation:fiu .6s ease-out .1s both}
         h1 .hl{background:linear-gradient(135deg,var(--ac2),var(--ac),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .hero-s{font-size:18px;color:var(--t2);line-height:1.7;max-width:600px;animation:fiu .6s ease-out .2s both}
+        .hero-s{font-size:18px;color:var(--t2);line-height:1.7;max-width:620px;animation:fiu .6s ease-out .2s both}
         @keyframes fiu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-        /* SHARED */
         .dv{height:1px;background:linear-gradient(90deg,transparent,var(--brd2),transparent)}
         .sc{padding:64px 0}
         .sl{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--ac);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
         h2{font-size:clamp(24px,4vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
         .bt{font-size:16px;color:var(--t2);line-height:1.8;margin-bottom:16px}
 
-        /* TOC */
         .toc{margin-top:32px;display:grid;gap:10px}
         .toc a{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--brd);border-radius:14px;text-decoration:none;color:var(--t1);transition:all .2s;font-weight:500;font-size:15px}
         .toc a:hover{border-color:var(--brd2);background:var(--card-h);transform:translateX(4px)}
@@ -63,7 +59,6 @@
         .toc-a{margin-left:auto;color:var(--t3);font-size:13px;transition:color .2s}
         .toc a:hover .toc-a{color:var(--ac)}
 
-        /* ACCORDION */
         .acc{margin-top:28px}
         .acc-item{border:1px solid var(--brd);border-radius:16px;margin-bottom:12px;overflow:hidden;background:var(--card);transition:border-color .3s}
         .acc-item.open{border-color:var(--brd2)}
@@ -78,7 +73,6 @@
         .acc-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
         .acc-inner{padding:0 24px 28px;border-top:1px solid var(--brd)}
 
-        /* TEMPLATE CONTENT */
         .tmpl-section{margin-top:20px}
         .tmpl-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
         .tmpl-label::before{content:'';width:6px;height:6px;background:var(--ac);border-radius:50%}
@@ -95,7 +89,6 @@
         .tmpl-tip{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-radius:10px;padding:14px 18px;margin-top:16px;font-size:13px;color:var(--t2);line-height:1.6}
         .tmpl-tip strong{color:var(--or)}
 
-        /* WORKFLOW */
         .wf-map{margin:20px 0;background:#0d0d12;border:1px solid var(--brd);border-radius:12px;padding:24px;overflow-x:auto}
         .wf-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
         .wf-flow:last-child{margin-bottom:0}
@@ -106,7 +99,6 @@
         .wf-row-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;margin-top:16px}
         .wf-row-label:first-child{margin-top:0}
 
-        /* EXAMPLES */
         .ex-card{background:#0d0d12;border:1px solid var(--brd);border-radius:12px;padding:24px;margin-top:16px}
         .ex-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
         .ex-title{font-size:16px;font-weight:600;margin-bottom:10px}
@@ -124,7 +116,6 @@
         .ex-ba-arrow{color:var(--t3);font-size:20px;font-weight:700}
         .ex-ba-label{font-size:11px;text-transform:uppercase;letter-spacing:.04em;font-family:'JetBrains Mono',monospace;opacity:.7;margin-bottom:4px}
 
-        /* TIMELINE */
         .tl{margin-top:28px;position:relative;padding-left:28px}
         .tl::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--ac3),var(--gr));border-radius:2px}
         .tl-s{position:relative;padding:0 0 32px 28px}
@@ -139,13 +130,11 @@
         .tl-task{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:13px;color:var(--t2)}
         .tl-check{color:var(--gr);font-size:14px;margin-top:2px;flex-shrink:0}
 
-        /* STAT */
         .stat{background:linear-gradient(135deg,var(--card) 0%,rgba(124,58,237,.08) 100%);border:1px solid var(--brd);border-radius:20px;padding:48px 40px;text-align:center;margin:48px 0 0;position:relative;overflow:hidden}
         .stat::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
         .stat-n{font-size:clamp(48px,8vw,72px);font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,var(--t1),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px}
         .stat-d{font-size:17px;color:var(--t2)}
 
-        /* CTA */
         .cta-sc{padding:80px 0 100px}
         .cta-card{background:linear-gradient(160deg,rgba(124,58,237,.12) 0%,var(--card) 40%,rgba(96,165,250,.08) 100%);border:1px solid var(--ac3);border-radius:24px;padding:56px 40px;text-align:center;position:relative;overflow:hidden}
         .cta-card::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
@@ -179,7 +168,7 @@
 
 <nav>
     <div class="ctn">
-        <div class="nav-b"><div class="nav-d"></div>AI EGC & GTM</div>
+        <div class="nav-b"><div class="nav-d"></div>RallyUp — AI EGC & GTM</div>
         <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="nav-c" target="_blank" rel="noopener">Book a Demo →</a>
     </div>
 </nav>
@@ -187,25 +176,25 @@
 <!-- HERO -->
 <section class="hero">
     <div class="ctn">
-        <div class="badge"><span class="pls"></span>Free Setup Guide</div>
-        <h1>The Complete <span class="hl">Claude Cowork</span> Setup Guide</h1>
-        <p class="hero-s">5 ready-to-use templates, workflow maps for content/product/research, real examples, and a step-by-step implementation plan. Everything you need — no fluff, just the system.</p>
+        <div class="badge"><span class="pls"></span>Free EGC Playbook</div>
+        <h1>Turn Every Employee Into a <span class="hl">Content Engine</span> That Fuels Your GTM</h1>
+        <p class="hero-s">Employee-Generated Content is the most underrated GTM channel. Your team's authentic voices convert better than any ad, any agency, any brand account. This guide shows you exactly how to build an EGC program using Claude Cowork as the engine — with 5 templates, workflow maps, real examples, and a 7-day launch plan.</p>
     </div>
 </section>
 
 <div class="dv"></div>
 
-<!-- TABLE OF CONTENTS -->
+<!-- TOC -->
 <section class="sc">
     <div class="ctn">
         <div class="reveal">
             <span class="sl">What's Inside</span>
             <h2>Jump to any section</h2>
             <div class="toc">
-                <a href="#templates"><span class="toc-n">01</span>5 Ready-to-Use Templates<span class="toc-a">Prompts + SOPs ↓</span></a>
-                <a href="#workflows"><span class="toc-n">02</span>Workflow Maps<span class="toc-a">Content · Product · Research ↓</span></a>
-                <a href="#examples"><span class="toc-n">03</span>Real Examples & Outputs<span class="toc-a">3 Case Studies ↓</span></a>
-                <a href="#plan"><span class="toc-n">04</span>7-Day Implementation Plan<span class="toc-a">Day-by-Day ↓</span></a>
+                <a href="#templates"><span class="toc-n">01</span>5 EGC Templates<span class="toc-a">Prompts + SOPs ↓</span></a>
+                <a href="#workflows"><span class="toc-n">02</span>EGC Workflow Maps<span class="toc-a">Employee · Brand · GTM ↓</span></a>
+                <a href="#examples"><span class="toc-n">03</span>Real EGC Examples & Results<span class="toc-a">3 Case Studies ↓</span></a>
+                <a href="#plan"><span class="toc-n">04</span>7-Day EGC Launch Plan<span class="toc-a">Day-by-Day ↓</span></a>
             </div>
         </div>
     </div>
@@ -219,19 +208,19 @@
 <section class="sc" id="templates">
     <div class="ctn">
         <div class="reveal">
-            <span class="sl">01 — Ready-to-Use Templates</span>
-            <h2>Drop these into your workspace and start producing immediately.</h2>
-            <p class="bt">Each template includes a copy-paste prompt and step-by-step instructions. Click to expand.</p>
+            <span class="sl">01 — EGC Templates</span>
+            <h2>5 templates that turn employees into prolific content creators.</h2>
+            <p class="bt">Each template includes a copy-paste prompt for Claude Cowork and step-by-step instructions. Your team doesn't need to be "good at content" — the AI does the heavy lifting while their authentic voice shines through. Click to expand.</p>
 
             <div class="acc">
 
                 <!-- TEMPLATE 1 -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">📝</span>
+                        <span class="acc-icon">🎤</span>
                         <div class="acc-info">
-                            <div class="acc-title">Template 1: Content Strategy Engine</div>
-                            <div class="acc-sub">Turn 1 topic into a full multi-channel content plan</div>
+                            <div class="acc-title">Template 1: Employee Thought Leadership Engine</div>
+                            <div class="acc-sub">Turn any employee's expertise into LinkedIn authority</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -240,71 +229,60 @@
                         <div class="tmpl-section">
                             <div class="tmpl-label">How to Use</div>
                             <div class="tmpl-steps">
-                                <div class="tmpl-step">Create a new project in Claude Cowork called "Content Engine — [Topic/Campaign Name]".</div>
-                                <div class="tmpl-step">Upload your brand voice doc, audience personas, and any existing top-performing content as project knowledge.</div>
-                                <div class="tmpl-step">Paste the prompt below into the project chat.</div>
-                                <div class="tmpl-step">Review the output. Ask Claude to expand any section — e.g. "Write the full LinkedIn post for angle #3."</div>
-                                <div class="tmpl-step">Use the project as a living workspace — add team members so writers, designers, and social managers can all pull from the same source.</div>
+                                <div class="tmpl-step">Create a Claude Cowork project called "EGC — [Employee Name] Thought Leadership".</div>
+                                <div class="tmpl-step">Upload: the employee's LinkedIn profile, 2-3 past posts they liked, their speaking topics, any talks/podcasts they've done, and your company's messaging guidelines.</div>
+                                <div class="tmpl-step">Have a 15-minute voice note conversation with the employee about what they're seeing in their field. Upload the transcript.</div>
+                                <div class="tmpl-step">Paste the prompt below. Claude will generate a month of content in their voice.</div>
+                                <div class="tmpl-step">Employee reviews and adds personal anecdotes or tweaks — 10 minutes per post. Authenticity preserved, effort eliminated.</div>
                             </div>
                         </div>
 
                         <div class="tmpl-section">
                             <div class="tmpl-label">Copy-Paste Prompt</div>
-                            <div class="prompt-block" id="p1">You are a senior content strategist. I need a comprehensive multi-channel content plan.
+                            <div class="prompt-block" id="p1">You are a ghostwriting strategist for Employee-Generated Content (EGC). Your job is to help this employee become a recognized thought leader on LinkedIn — using THEIR authentic voice, experiences, and perspective.
 
-**CORE TOPIC:** [Insert your topic or key message]
+Review the employee's profile, past content, and voice notes in this project. Mirror their natural tone exactly — don't make them sound like a marketer.
 
-**TARGET AUDIENCE:** [Insert audience — e.g. "B2B SaaS founders, Series A-C, 20-200 employees"]
-
-**GOAL:** [Insert goal — e.g. "Drive demo bookings" / "Build thought leadership" / "Launch product awareness"]
-
-**BRAND VOICE:** [Insert 2-3 adjectives — e.g. "Bold, practical, zero-fluff"]
+**EMPLOYEE NAME:** [Name]
+**ROLE:** [e.g. "VP of Engineering at [Company]"]
+**EXPERTISE AREAS:** [e.g. "Scaling engineering teams, developer experience, AI in production"]
+**VOICE CHARACTERISTICS:** [e.g. "Direct, uses analogies, slightly contrarian, no jargon"]
+**COMPANY GTM GOAL:** [e.g. "Position us as the leader in AI-powered developer tools"]
 
 ---
 
-Please generate the following:
+Generate a 4-week LinkedIn content calendar (3 posts/week = 12 posts):
 
-## 1. Content Angles (5-7 unique angles)
-For each angle provide:
-- Hook (1 sentence that stops the scroll)
-- Core argument
-- Target emotion
-- Best channel for this angle
+## Week 1: Establish Expertise
+Post 1 — HOT TAKE: A contrarian opinion based on their real experience
+Post 2 — STORY: A specific moment/failure/lesson from their career
+Post 3 — FRAMEWORK: A practical how-to from their domain expertise
 
-## 2. Blog Post Outlines (3 posts)
-For each:
-- SEO-optimized title (include primary keyword)
-- Meta description (155 chars)
-- H2 structure with key points under each
-- Internal/external linking suggestions
-- CTA recommendation
+## Week 2: Build Trust
+Post 4 — BEHIND THE SCENES: What their team is actually working on (transparency)
+Post 5 — DATA POINT: An insight from their work backed by a real number
+Post 6 — OPINION: React to an industry trend with a strong point of view
 
-## 3. LinkedIn Posts (5 posts)
-For each:
-- Full post text (hook + body + CTA)
-- Suggested posting day/time
-- Engagement prompt (question or poll idea)
+## Week 3: Drive Engagement
+Post 7 — QUESTION POST: Ask their audience something they genuinely want to know
+Post 8 — MYTH-BUSTING: "Everyone thinks X. Here's why that's wrong."
+Post 9 — TACTICAL: Step-by-step breakdown of something they do well
 
-## 4. Email Sequence (3-email nurture)
-For each email:
-- Subject line (A/B options)
-- Preview text
-- Full body copy
-- CTA button text
+## Week 4: Convert
+Post 10 — CASE STUDY: A win their team/product delivered (subtle company mention)
+Post 11 — PREDICTION: Where their industry is heading (thought leadership)
+Post 12 — CTA POST: Soft pitch wrapped in genuine value (ties to company GTM)
 
-## 5. Twitter/X Thread (1 thread, 8-12 tweets)
-- Full thread with numbering
-- Include a visual/screenshot suggestion for tweet 1
+FOR EACH POST provide:
+- Full post text (hook line + body + CTA/engagement prompt)
+- Best day/time to post
+- Suggested visual (screenshot, chart, photo idea)
+- Engagement strategy (who to tag, which comments to reply to)
 
-## 6. Short-Form Video Scripts (2 scripts)
-- 60-second format
-- Hook (first 3 seconds), body, CTA
-- On-screen text suggestions
-
-Ensure all content is consistent in messaging but adapted to each channel's native format and audience expectations.<button class="copy-btn" onclick="copyPrompt('p1',this)">Copy</button></div>
+CRITICAL: Every post must sound like it was written by the employee, not by marketing. Use first person. Include imperfections. Reference specific experiences from their voice notes. The goal is authentic thought leadership that happens to align with the company's GTM — NOT branded content that sounds corporate.<button class="copy-btn" onclick="copyPrompt('p1',this)">Copy</button></div>
                         </div>
 
-                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After generating, tell Claude "Now create a content calendar for the next 4 weeks using all of the above" — it will schedule everything since it has the full context in the project.</div>
+                        <div class="tmpl-tip"><strong>💡 EGC Tip:</strong> Run this for 3-5 employees simultaneously in separate Cowork projects. Within 30 days you'll have 36-60 pieces of authentic content hitting LinkedIn from real voices — that's more reach than most brand accounts get in a quarter.</div>
 
                     </div></div>
                 </div>
@@ -312,10 +290,10 @@ Ensure all content is consistent in messaging but adapted to each channel's nati
                 <!-- TEMPLATE 2 -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">🗺️</span>
+                        <span class="acc-icon">🧲</span>
                         <div class="acc-info">
-                            <div class="acc-title">Template 2: Product Roadmap Builder</div>
-                            <div class="acc-sub">Synthesize signals into a prioritized quarterly roadmap</div>
+                            <div class="acc-title">Template 2: EGC-Powered GTM Campaign Builder</div>
+                            <div class="acc-sub">Build go-to-market campaigns fueled by employee voices</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -324,63 +302,66 @@ Ensure all content is consistent in messaging but adapted to each channel's nati
                         <div class="tmpl-section">
                             <div class="tmpl-label">How to Use</div>
                             <div class="tmpl-steps">
-                                <div class="tmpl-step">Create a project called "Product Roadmap — [Quarter/Year]".</div>
-                                <div class="tmpl-step">Upload: customer feedback docs, support ticket summaries, competitor analysis, sales call notes, and any existing roadmap.</div>
-                                <div class="tmpl-step">Invite your PM, engineering lead, and design lead to the project so everyone can iterate together.</div>
-                                <div class="tmpl-step">Paste the prompt below. Claude will synthesize all uploaded context.</div>
-                                <div class="tmpl-step">Use follow-ups like "Reprioritize assuming we lose 2 engineers" or "What if we push the enterprise tier to Q3?"</div>
+                                <div class="tmpl-step">Create a project called "GTM Campaign — [Campaign Name]".</div>
+                                <div class="tmpl-step">Upload: campaign brief, ICP docs, past campaign performance, competitor positioning, and employee voice profiles from Template 1 projects.</div>
+                                <div class="tmpl-step">Invite marketing, sales, and 2-3 employees who'll be creating content for this campaign.</div>
+                                <div class="tmpl-step">Paste the prompt. Claude builds a full campaign where employee voices ARE the distribution channel.</div>
+                                <div class="tmpl-step">Assign content pieces to specific employees based on their expertise and audience. Each employee gets personalized drafts.</div>
                             </div>
                         </div>
 
                         <div class="tmpl-section">
                             <div class="tmpl-label">Copy-Paste Prompt</div>
-                            <div class="prompt-block" id="p2">You are a senior product manager. Using all the context in this project (customer feedback, support data, competitor intel, sales notes), build a quarterly product roadmap.
+                            <div class="prompt-block" id="p2">You are a GTM strategist specializing in Employee-Generated Content campaigns. Build a campaign where employees — not the brand account — are the primary distribution and trust-building channel.
 
-**QUARTER:** [e.g. Q3 2025]
-**TEAM SIZE:** [e.g. "3 engineers, 1 designer, 1 PM"]
-**COMPANY STAGE:** [e.g. "Series B, 5K customers, PLG motion"]
-**NORTH STAR METRIC:** [e.g. "Weekly active teams" / "Net revenue retention"]
+**CAMPAIGN OBJECTIVE:** [e.g. "Launch new product tier — drive 200 qualified demos in 60 days"]
+**TARGET ICP:** [e.g. "VP Engineering, Series B-D companies, 100-500 employees"]
+**KEY MESSAGE:** [e.g. "The only AI workspace built for teams, not individuals"]
+**EMPLOYEE CONTENT CREATORS:** [List 3-5 employees with their roles and audience size]
+**BUDGET:** [e.g. "$30K for paid amplification of top-performing EGC"]
+**TIMELINE:** [e.g. "8 weeks"]
 
 ---
 
-Please generate:
+## 1. EGC Campaign Strategy
+- Why employee voices will outperform brand content for this campaign
+- Content pillar framework: map each employee to a specific angle based on their expertise
+- Sequencing: how employee posts build on each other to create a narrative wave
 
-## 1. Signal Synthesis
-- Top 10 themes from customer feedback (ranked by frequency + revenue impact)
-- Top 5 competitive gaps
-- Top 3 internal pain points from the team
+## 2. Employee Content Assignments
+For each employee, generate:
+- Their specific angle/pillar (what makes them the right voice for this)
+- 4-6 content pieces across the campaign timeline
+- Full draft for each post in their unique voice
+- Personal story hooks that tie to the campaign message
+- Suggested interactions: who they should engage with, which posts to comment on
 
-## 2. Opportunity Scoring
-For each of the top 10 themes, score on:
-- Impact (1-10): How much does this move the north star metric?
-- Confidence (1-10): How sure are we this matters?
-- Effort (T-shirt size): XS / S / M / L / XL
-- Calculate ICE score and rank
+## 3. Amplification Strategy
+- Which EGC posts to boost with paid spend (criteria for selection)
+- Brand account's role: reshare, comment, and amplify — never lead
+- Sales team enablement: how reps use EGC posts in outreach sequences
+- Email integration: EGC content repurposed into nurture campaigns
 
-## 3. Recommended Roadmap
-Organize into:
-- **Must-haves** (non-negotiable this quarter)
-- **Should-haves** (high impact, schedule permitting)
-- **Nice-to-haves** (opportunistic wins)
-- **Explicitly NOT doing** (and why — this is critical for alignment)
+## 4. Coordination Calendar
+- Week-by-week timeline: who posts what, when
+- Engagement cascades: when Employee A posts, Employees B and C engage within 1 hour
+- Brand account amplification schedule
+- Paid boost triggers (when a post hits X engagement, boost it)
 
-For each item:
-- 1-paragraph scope description
-- Success metric
-- Dependencies
-- Estimated timeline (weeks)
+## 5. Measurement Framework
+- Per-employee metrics: impressions, engagement rate, profile visits, connection requests
+- Campaign-level: pipeline influenced by EGC, demos attributed to employee content
+- EGC vs. brand content comparison (track both, prove the ROI)
+- Employee advocacy score: measure participation and quality
 
-## 4. Sprint Breakdown
-- Suggested 2-week sprint plan for the first 6 weeks
-- Key milestones and review points
-
-## 5. Stakeholder Summary
-- 1-page executive summary suitable for a board update
-- 3 talking points for the sales team
-- 3 talking points for customer success<button class="copy-btn" onclick="copyPrompt('p2',this)">Copy</button></div>
+## 6. Employee Enablement Kit
+- 1-page guide for each employee: "Here's your role in this campaign"
+- Do's and don'ts for authenticity (never say "we" when you mean "the company")
+- Response templates for common comments and DMs
+- Escalation path for sensitive engagement<button class="copy-btn" onclick="copyPrompt('p2',this)">Copy</button></div>
                         </div>
 
-                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> Keep this project alive all quarter. After each sprint, paste your retro notes and ask Claude to "Update the roadmap based on what we learned." The persistent context means it gets smarter every iteration.</div>
+                        <div class="tmpl-tip"><strong>💡 EGC Tip:</strong> The magic is in the "engagement cascade." When 5 employees post about the same theme in the same week, and engage with each other's content, LinkedIn's algorithm treats it as a trending topic in your ICP's feed. It's organic reach that money can't buy.</div>
 
                     </div></div>
                 </div>
@@ -390,8 +371,8 @@ For each item:
                     <button class="acc-head" onclick="toggleAcc(this)">
                         <span class="acc-icon">🔍</span>
                         <div class="acc-info">
-                            <div class="acc-title">Template 3: Customer Research Synthesizer</div>
-                            <div class="acc-sub">Turn raw interviews & survey data into structured insights</div>
+                            <div class="acc-title">Template 3: Voice-of-Customer → Employee Story Converter</div>
+                            <div class="acc-sub">Turn customer research into employee content that resonates</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -400,65 +381,63 @@ For each item:
                         <div class="tmpl-section">
                             <div class="tmpl-label">How to Use</div>
                             <div class="tmpl-steps">
-                                <div class="tmpl-step">Create a project called "Research Synthesis — [Research Initiative Name]".</div>
-                                <div class="tmpl-step">Upload all raw data: interview transcripts, survey CSVs, NPS comments, support tickets, Gong call recordings (transcripts), G2 reviews.</div>
-                                <div class="tmpl-step">Paste the prompt below. Claude will process everything in the project context.</div>
-                                <div class="tmpl-step">Ask follow-ups like "Deep dive into the onboarding friction theme" or "Create a persona based on Segment 2."</div>
-                                <div class="tmpl-step">Share the project with your team — anyone can ask Claude questions about the research data directly.</div>
+                                <div class="tmpl-step">Create a project called "VoC → EGC — [Quarter/Campaign]".</div>
+                                <div class="tmpl-step">Upload: customer interview transcripts, NPS comments, G2/Capterra reviews, support tickets, win/loss analysis, and sales call recordings.</div>
+                                <div class="tmpl-step">Paste the prompt. Claude extracts the gold and converts it into employee-ready content.</div>
+                                <div class="tmpl-step">Route each content piece to the right employee — CS stories go to CS people, technical wins go to engineers, etc.</div>
+                                <div class="tmpl-step">Employees personalize with their own experience of the situation (2-3 sentences added) and post.</div>
                             </div>
                         </div>
 
                         <div class="tmpl-section">
                             <div class="tmpl-label">Copy-Paste Prompt</div>
-                            <div class="prompt-block" id="p3">You are a senior UX researcher and strategist. Analyze all the customer research data in this project and produce a comprehensive synthesis.
+                            <div class="prompt-block" id="p3">You are a content strategist who specializes in converting customer insights into authentic Employee-Generated Content. Analyze all customer data in this project and generate employee-ready content.
 
-**RESEARCH GOAL:** [e.g. "Understand why trial-to-paid conversion dropped 15% in Q2"]
-**CUSTOMER SEGMENT:** [e.g. "Mid-market teams, 50-500 employees"]
-**DATA SOURCES IN THIS PROJECT:** [List what you uploaded — e.g. "23 interview transcripts, NPS survey (n=847), 156 support tickets, 12 churned customer exit interviews"]
+**DATA SOURCES:** [List what you uploaded]
+**EMPLOYEE CONTENT CREATORS:** [List employees with roles — e.g. "Sarah (CS Lead), Marcus (Head of Eng), Priya (Product Manager)"]
+**COMPANY:** [Brief description]
+**GTM PRIORITY:** [What you're trying to drive]
 
 ---
 
-Please generate:
+## 1. Customer Insight Extraction
+- Top 10 customer stories/moments worth sharing (ranked by emotional resonance and GTM relevance)
+- For each: the raw insight, why it matters, and which employee should tell this story
+- Verbatim quotes that are gold (with permission guidance)
 
-## 1. Executive Summary
-- 3-paragraph overview a CEO can read in 2 minutes
-- Top 3 findings with confidence levels (High/Medium/Low)
-- Recommended immediate actions
+## 2. Employee Content Pieces (Generate 3 per employee)
+For each piece:
+- **Source insight:** Which customer data point inspired this
+- **Assigned employee:** Who tells this story and why they're the right voice
+- **Format:** Story post / lesson post / behind-the-scenes / data insight
+- **Full draft:** Written in that specific employee's voice and perspective
+  - Must connect customer insight → employee's personal experience → broader lesson
+  - Include a specific moment or anecdote that makes it feel real
+  - End with engagement hook (question, hot take, or invitation)
+- **Suggested visual:** Screenshot, chart, or photo idea
+- **Compliance note:** What can/can't be shared (customer names, data, etc.)
 
-## 2. Theme Analysis
-Identify the top 8-10 themes. For each:
-- Theme name and 1-sentence description
-- Frequency (how many data points support this)
-- Severity (how much it impacts the user experience, 1-5)
-- Representative quotes (2-3 verbatim quotes per theme)
-- Affected user segments
+## 3. Content-to-Funnel Mapping
+- Which pieces target top-of-funnel (awareness/trust)?
+- Which target mid-funnel (consideration/proof)?
+- Which target bottom-funnel (decision/urgency)?
+- How each piece connects to the next step in the buyer journey
 
-## 3. User Segments
-- Identify 3-4 distinct behavioral segments from the data
-- For each: demographics, goals, frustrations, current workarounds
-- Which segment is highest priority and why
+## 4. Repurposing Guide
+For each employee piece, generate:
+- A company blog snippet (different angle, links back to employee's post)
+- An email nurture paragraph
+- A sales outreach snippet (for reps to reference in cold outreach)
+- A short-form video script (employee telling the story on camera, 60 seconds)
 
-## 4. Journey Map
-- Map the current user journey from awareness → activation → retention
-- Identify friction points at each stage (backed by data)
-- Emotional state at each stage
-
-## 5. Competitive Context
-- Where did users mention alternatives? What were they?
-- What are users getting from competitors that they're not getting from us?
-
-## 6. Recommendations
-- Prioritized list of 5-7 recommendations
-- For each: what to do, expected impact, effort estimate, and supporting evidence
-- Quick wins (< 1 week) vs. strategic bets (1+ month)
-
-## 7. Appendix
-- Full quote bank organized by theme
-- Data methodology notes
-- Gaps in the research (what we still don't know)<button class="copy-btn" onclick="copyPrompt('p3',this)">Copy</button></div>
+## 5. Engagement Playbook
+- How the team should engage with comments on these posts
+- Suggested replies for common questions
+- When to pull customers into the conversation (with their permission)
+- How to turn high-engagement posts into follow-up content<button class="copy-btn" onclick="copyPrompt('p3',this)">Copy</button></div>
                         </div>
 
-                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After synthesis, ask "Create a 10-slide presentation deck summarizing these findings for the leadership team." Claude will structure the full deck with speaker notes since it has all the context.</div>
+                        <div class="tmpl-tip"><strong>💡 EGC Tip:</strong> The best EGC doesn't talk about your product. It talks about the customer's problem — from the perspective of the employee who helped solve it. "I spent 3 hours on a call with a customer who was about to churn..." is 10x more powerful than any case study PDF.</div>
 
                     </div></div>
                 </div>
@@ -466,10 +445,10 @@ Identify the top 8-10 themes. For each:
                 <!-- TEMPLATE 4 -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">🚀</span>
+                        <span class="acc-icon">📊</span>
                         <div class="acc-info">
-                            <div class="acc-title">Template 4: Campaign Brainstorm Accelerator</div>
-                            <div class="acc-sub">Go from brief to 20+ campaign concepts in one session</div>
+                            <div class="acc-title">Template 4: EGC Performance Analyzer & Optimizer</div>
+                            <div class="acc-sub">Measure what's working and double down on it</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -478,72 +457,67 @@ Identify the top 8-10 themes. For each:
                         <div class="tmpl-section">
                             <div class="tmpl-label">How to Use</div>
                             <div class="tmpl-steps">
-                                <div class="tmpl-step">Create a project called "Campaign — [Campaign Name]".</div>
-                                <div class="tmpl-step">Upload: creative brief, brand guidelines, audience data, past campaign performance data, competitor campaigns you admire.</div>
-                                <div class="tmpl-step">Invite the full campaign team — marketing, creative, product marketing, sales.</div>
-                                <div class="tmpl-step">Paste the prompt. Review the concepts as a team in real-time.</div>
-                                <div class="tmpl-step">Ask Claude to "Develop concept #4 into a full campaign plan" or "Combine concepts #2 and #7 into a hybrid approach."</div>
+                                <div class="tmpl-step">Create a persistent project called "EGC Analytics — [Quarter]".</div>
+                                <div class="tmpl-step">Every 2 weeks, export each employee's LinkedIn post analytics (impressions, engagement, comments, profile views) and paste or upload to the project.</div>
+                                <div class="tmpl-step">Upload the posts themselves alongside the metrics.</div>
+                                <div class="tmpl-step">Paste the prompt. Claude will analyze patterns and optimize your program.</div>
+                                <div class="tmpl-step">Use the output to brief employees on what to double down on and what to stop.</div>
                             </div>
                         </div>
 
                         <div class="tmpl-section">
                             <div class="tmpl-label">Copy-Paste Prompt</div>
-                            <div class="prompt-block" id="p4">You are an award-winning creative strategist. Generate a comprehensive campaign brainstorm based on the brief below and all project context.
+                            <div class="prompt-block" id="p4">You are an EGC program analyst. Analyze all employee content performance data in this project and generate actionable optimization insights.
 
-**CAMPAIGN OBJECTIVE:** [e.g. "Launch new enterprise tier — drive 200 qualified demos in 60 days"]
-**TARGET AUDIENCE:** [e.g. "VP Engineering and CTO at companies with 200-2000 employees"]
-**KEY MESSAGE:** [e.g. "The only AI workspace built for teams, not individuals"]
-**BUDGET RANGE:** [e.g. "$50K-$100K"]
-**CHANNELS AVAILABLE:** [e.g. "LinkedIn Ads, Google Ads, Email, Webinars, Content, Partnerships"]
-**TIMELINE:** [e.g. "8 weeks"]
-**COMPETITIVE CONTEXT:** [e.g. "Competing against ChatGPT Enterprise and internal AI tools"]
+**REPORTING PERIOD:** [e.g. "Last 2 weeks" / "Month of March"]
+**EMPLOYEES TRACKED:** [List all participating employees]
+**PROGRAM GOALS:** [e.g. "Increase qualified demos from LinkedIn by 30%"]
 
 ---
 
-Please generate:
+## 1. Performance Dashboard
+For each employee:
+- Total impressions, engagement rate, top-performing post
+- Follower growth trend
+- Content type breakdown (which formats perform best for them)
+- Audience quality signals (are the right people engaging?)
 
-## 1. Strategic Foundation
-- Campaign positioning statement (1 sentence)
-- 3 core value propositions (ranked by uniqueness)
-- Emotional driver analysis: What feeling drives the purchase decision?
-- Messaging hierarchy: Primary → Secondary → Tertiary messages
+## 2. Program-Level Analysis
+- Total EGC reach vs. brand account reach (comparison)
+- Engagement rate: EGC vs. brand content
+- Top 5 performing posts across all employees (and why they worked)
+- Bottom 5 performing posts (and why they didn't)
+- Pipeline/demo attribution from EGC (if data available)
 
-## 2. Campaign Concepts (Generate 5 distinct concepts)
-For each concept:
-- Concept name (catchy, memorable)
-- Big idea (1 sentence)
-- Tagline options (3 per concept)
-- Hero visual description
-- Channel strategy (which channels, why)
-- Content pieces needed (list specific deliverables)
-- Estimated split of budget
-- Why this works (strategic rationale)
+## 3. Content Pattern Analysis
+- Which hooks drive the most engagement?
+- Which posting times perform best?
+- Optimal post length for this audience
+- Topic trends: what's the audience hungry for?
+- Visual vs. text-only performance comparison
 
-## 3. Messaging Variants
-For the top concept, create:
-- Awareness-stage messaging (cold audience)
-- Consideration-stage messaging (warm audience)
-- Decision-stage messaging (hot leads)
-- Each with: headline, body copy, CTA
+## 4. Employee-Specific Coaching
+For each employee, generate:
+- "Keep doing" — their content superpower
+- "Start doing" — untapped angle or format they should try
+- "Stop doing" — what's underperforming (with a kind framing)
+- Next 4 post ideas based on what's working
 
-## 4. Content Calendar
-- Week-by-week breakdown for 8 weeks
-- Specific deliverables per week
-- Dependencies and deadlines
+## 5. Program Optimization Recommendations
+- Which employees should increase frequency? Decrease?
+- New content pillars to introduce based on audience signals
+- Engagement cascade improvements
+- Paid amplification recommendations (which posts to boost)
+- New employee candidates to add to the program
 
-## 5. Measurement Framework
-- KPIs per channel
-- Weekly targets
-- Definition of qualified demo
-- Attribution model recommendation
-
-## 6. Risk Assessment
-- Top 3 risks to campaign success
-- Mitigation plan for each
-- Plan B if primary concept underperforms by week 3<button class="copy-btn" onclick="copyPrompt('p4',this)">Copy</button></div>
+## 6. ROI Report
+- Estimated earned media value of EGC program
+- Cost comparison: EGC program vs. equivalent paid reach
+- Pipeline influence metrics
+- Executive summary suitable for leadership (3 paragraphs)<button class="copy-btn" onclick="copyPrompt('p4',this)">Copy</button></div>
                         </div>
 
-                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> After the brainstorm, ask "Now write the creative brief for our designer based on Concept #[X]." Since Claude has all the context, it will produce a brief that actually contains everything the designer needs.</div>
+                        <div class="tmpl-tip"><strong>💡 EGC Tip:</strong> Run this every 2 weeks. The persistent Cowork project means Claude can compare performance across months, spot long-term trends, and tell you things like "Sarah's storytelling posts consistently outperform her tactical posts by 3x — shift her content mix."</div>
 
                     </div></div>
                 </div>
@@ -553,8 +527,8 @@ For the top concept, create:
                     <button class="acc-head" onclick="toggleAcc(this)">
                         <span class="acc-icon">⚡</span>
                         <div class="acc-info">
-                            <div class="acc-title">Template 5: Weekly Team Sync Optimizer</div>
-                            <div class="acc-sub">Cut meeting time in half while doubling alignment</div>
+                            <div class="acc-title">Template 5: New Employee EGC Onboarding Kit</div>
+                            <div class="acc-sub">Get any employee creating content in their first week</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -563,72 +537,72 @@ For the top concept, create:
                         <div class="tmpl-section">
                             <div class="tmpl-label">How to Use</div>
                             <div class="tmpl-steps">
-                                <div class="tmpl-step">Create a persistent project called "Team Syncs — [Team Name]" that lives across weeks.</div>
-                                <div class="tmpl-step">Before each meeting: team members paste their async updates into the project chat (what they shipped, what's blocked, what's next).</div>
-                                <div class="tmpl-step">Run the Pre-Meeting prompt 30 minutes before the sync.</div>
-                                <div class="tmpl-step">Use the generated agenda to run a focused 30-minute meeting instead of a 60-minute ramble.</div>
-                                <div class="tmpl-step">After the meeting, run the Post-Meeting prompt to generate action items and update the project.</div>
+                                <div class="tmpl-step">Create a project called "EGC Onboarding — [Employee Name]".</div>
+                                <div class="tmpl-step">Upload: company messaging guidelines, examples of great EGC from existing employees, the employee's LinkedIn profile, and their job description.</div>
+                                <div class="tmpl-step">Have a 10-minute chat with the employee: "What do you know that most people in your field don't?" Upload the notes.</div>
+                                <div class="tmpl-step">Paste the prompt. Claude builds a personalized onboarding kit.</div>
+                                <div class="tmpl-step">Employee follows the kit — first post goes live within 3 days, with minimal effort.</div>
                             </div>
                         </div>
 
                         <div class="tmpl-section">
-                            <div class="tmpl-label">Pre-Meeting Prompt</div>
-                            <div class="prompt-block" id="p5a">Based on all async updates shared in this project this week, generate:
+                            <div class="tmpl-label">Copy-Paste Prompt</div>
+                            <div class="prompt-block" id="p5">You are an EGC program manager onboarding a new employee content creator. Using all context in this project, build a personalized onboarding kit that makes it dead simple for this person to start creating content.
 
-## 1. Meeting Agenda (30 minutes max)
-- Pre-populated with the 3-5 most important discussion topics
-- For each: context summary, key decision needed, time allocation
-- Flag any cross-team dependencies or blockers
+**EMPLOYEE:** [Name, Role]
+**EXPERTISE:** [Their domain knowledge areas]
+**CONTENT COMFORT LEVEL:** [e.g. "Never posted on LinkedIn" / "Occasional poster" / "Active but inconsistent"]
+**UNIQUE ANGLE:** [From the 10-min chat — what do they know that's interesting?]
 
-## 2. Progress Snapshot
-- What shipped this week (celebrate wins)
-- What's in progress (expected completion)
-- What's blocked (and suggested unblock actions)
+---
 
-## 3. Metrics Update
-- Pull any numbers mentioned in updates
-- Compare to last week's targets (if available in project history)
-- Flag anything off-track
+## 1. Personal Content Identity
+- Their content positioning: "You are the person people follow to learn about [X]"
+- 3 content pillars unique to their expertise
+- Voice guide: based on how they speak, here's how they should write
+- Topics they should own vs. topics they should avoid
 
-## 4. Decisions Needed
-- List decisions that require live discussion (can't be async)
-- For each: provide context, options, and a recommended path
+## 2. LinkedIn Profile Optimization
+- Headline rewrite (incorporating thought leadership positioning)
+- About section rewrite (tells a story, not a resume)
+- Featured section recommendations
+- Banner image suggestion
 
-Keep the agenda tight. If it can be decided async, flag it as "async decision" and suggest who should own it.<button class="copy-btn" onclick="copyPrompt('p5a',this)">Copy</button></div>
+## 3. First 5 Posts (Full Drafts)
+Post 1 — THE INTRODUCTION: "I've been doing [X] for [Y] years. Here's the thing nobody tells you..."
+Post 2 — THE HOT TAKE: A contrarian opinion from their expertise
+Post 3 — THE STORY: A specific career moment that taught them something
+Post 4 — THE FRAMEWORK: A practical how-to that showcases their expertise
+Post 5 — THE BEHIND-THE-SCENES: What they're working on right now (ties to company)
+
+For each: full text, posting day/time, visual suggestion, and expected engagement range.
+
+## 4. Engagement Starter Kit
+- 10 accounts they should follow and engage with daily
+- Comment templates: how to add value on others' posts (not "Great post!")
+- Daily habit: 10 minutes of engagement before/after their own posts
+- How to respond when their posts get traction
+
+## 5. Week-by-Week Ramp Plan
+- Week 1: Optimize profile + Post #1 + start engaging
+- Week 2: Posts #2-3 + join 3 relevant conversations
+- Week 3: Posts #4-5 + first engagement cascade with team
+- Week 4: Self-sufficient — generating their own ideas with Claude Cowork
+
+## 6. FAQ & Objection Handling
+Address common employee concerns:
+- "I don't have time" → Here's the 15-min/day system
+- "I'm not a writer" → That's why we use Claude — you bring the ideas
+- "What if I say something wrong?" → Here are the guardrails
+- "Will anyone even care?" → Here's the data on employee reach vs brand reach<button class="copy-btn" onclick="copyPrompt('p5',this)">Copy</button></div>
                         </div>
 
-                        <div class="tmpl-section">
-                            <div class="tmpl-label">Post-Meeting Prompt</div>
-                            <div class="prompt-block" id="p5b">Based on the meeting discussion above, generate:
-
-## 1. Meeting Summary (3-5 bullet points)
-- Key decisions made
-- Important context shared
-
-## 2. Action Items
-For each action item:
-- What needs to be done (specific and measurable)
-- Who owns it
-- Deadline
-- Dependencies
-
-## 3. Parking Lot
-- Topics raised but not resolved
-- Suggested async follow-up plan
-
-## 4. Next Week Preview
-- Based on this week's progress, what should next week's priorities be?
-- Any upcoming deadlines or milestones to flag
-
-Update the project context with these decisions and action items so they carry forward to next week's sync.<button class="copy-btn" onclick="copyPrompt('p5b',this)">Copy</button></div>
-                        </div>
-
-                        <div class="tmpl-tip"><strong>💡 Pro Tip:</strong> The magic of this template is persistence. By week 4, Claude has a full history of your team's velocity, recurring blockers, and decision patterns. Ask it "What patterns do you see in our blockers over the past month?" and watch it surface insights no human would have tracked.</div>
+                        <div class="tmpl-tip"><strong>💡 EGC Tip:</strong> The #1 barrier to EGC isn't willingness — it's blank page anxiety. This template eliminates it. When you hand someone 5 ready-to-edit posts in their own voice, the friction drops to near zero. We've seen 90%+ participation rates with this approach.</div>
 
                     </div></div>
                 </div>
 
-            </div><!-- /acc -->
+            </div>
         </div>
     </div>
 </section>
@@ -641,201 +615,171 @@ Update the project context with these decisions and action items so they carry f
 <section class="sc" id="workflows">
     <div class="ctn">
         <div class="reveal">
-            <span class="sl">02 — Workflow Maps</span>
-            <h2>See exactly how each team function plugs in.</h2>
-            <p class="bt">Three complete workflow maps showing how work flows through Claude Cowork — from input to shipped output.</p>
+            <span class="sl">02 — EGC Workflow Maps</span>
+            <h2>How employee voices become your most powerful GTM channel.</h2>
+            <p class="bt">Three workflow maps showing how EGC flows from employee expertise to pipeline impact — powered by Claude Cowork.</p>
 
             <div class="acc">
 
-                <!-- WORKFLOW: CONTENT -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">📝</span>
+                        <span class="acc-icon">🎤</span>
                         <div class="acc-info">
-                            <div class="acc-title">Content Team Workflow</div>
-                            <div class="acc-sub">From ideation to published — 5 stages</div>
+                            <div class="acc-title">Employee Content Creation Workflow</div>
+                            <div class="acc-sub">From expertise extraction to published thought leadership</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="acc-body"><div class="acc-inner">
-
                         <div class="wf-map">
-                            <div class="wf-row-label">Stage 1 → Ideation</div>
+                            <div class="wf-row-label">Stage 1 → Extract</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Market signals</span>
+                                <span class="wf-node">15-min voice note</span>
                                 <span class="wf-arrow">+</span>
-                                <span class="wf-node">Customer questions</span>
+                                <span class="wf-node">Employee's past content</span>
                                 <span class="wf-arrow">+</span>
-                                <span class="wf-node">SEO data</span>
+                                <span class="wf-node">Industry trends</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Content Angles</span>
+                                <span class="wf-node active">Claude: Voice profile + angles</span>
                             </div>
-                            <div class="wf-row-label">Stage 2 → Briefs</div>
+                            <div class="wf-row-label">Stage 2 → Generate</div>
                             <div class="wf-flow">
-                                <span class="wf-node active">Top angles</span>
+                                <span class="wf-node active">Claude: Content calendar</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Full brief per piece</span>
+                                <span class="wf-node active">Claude: Full post drafts</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Team reviews in shared project</span>
+                                <span class="wf-node">Queue in shared project</span>
                             </div>
-                            <div class="wf-row-label">Stage 3 → Drafts</div>
+                            <div class="wf-row-label">Stage 3 → Personalize</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Approved brief</span>
+                                <span class="wf-node">Employee reviews draft</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: First draft</span>
+                                <span class="wf-node">Adds personal anecdotes (10 min)</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Human: Edit & add voice</span>
+                                <span class="wf-node active">Claude: Polish + optimize hook</span>
                             </div>
-                            <div class="wf-row-label">Stage 4 → Review</div>
+                            <div class="wf-row-label">Stage 4 → Publish & Engage</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Draft in project</span>
+                                <span class="wf-node">Employee posts</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Team feedback (inline)</span>
+                                <span class="wf-node">Team engagement cascade</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Revisions</span>
+                                <span class="wf-node active">Claude: Reply suggestions</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Final approval</span>
+                                <span class="wf-node output">Reach + Trust ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 5 → Publish & Repurpose</div>
+                            <div class="wf-row-label">Stage 5 → Repurpose</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Published piece</span>
+                                <span class="wf-node">Top-performing post</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Social snippets + email + thread</span>
+                                <span class="wf-node active">Claude: Blog + email + video script</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node output">Multi-channel output ✓</span>
+                                <span class="wf-node output">Multi-channel EGC ✓</span>
                             </div>
                         </div>
-
-                        <div class="tmpl-tip"><strong>Key Insight:</strong> The entire flow lives in one project. Claude has context from ideation through to repurposing, so the social posts actually reference the blog's key arguments — no manual briefing needed.</div>
-
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> The employee spends 10 minutes personalizing — Claude handles the other 90% of the work. The content is authentic because the ideas, stories, and opinions are theirs. AI just removes the writing friction.</div>
                     </div></div>
                 </div>
 
-                <!-- WORKFLOW: PRODUCT -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">🗺️</span>
+                        <span class="acc-icon">🧲</span>
                         <div class="acc-info">
-                            <div class="acc-title">Product Team Workflow</div>
-                            <div class="acc-sub">From research to shipped feature — 5 stages</div>
+                            <div class="acc-title">Brand ↔ Employee Content Sync Workflow</div>
+                            <div class="acc-sub">How brand content and EGC amplify each other</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="acc-body"><div class="acc-inner">
-
                         <div class="wf-map">
-                            <div class="wf-row-label">Stage 1 → Research</div>
+                            <div class="wf-row-label">Brand Content Flow</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Customer interviews</span>
-                                <span class="wf-arrow">+</span>
-                                <span class="wf-node">Support tickets</span>
-                                <span class="wf-arrow">+</span>
-                                <span class="wf-node">Usage analytics</span>
+                                <span class="wf-node">Company announcement</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Signal synthesis</span>
+                                <span class="wf-node active">Claude: Employee angle finder</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node">Personalized takes per employee</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">10x organic reach ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 2 → Prioritize</div>
+                            <div class="wf-row-label">EGC → Brand Flow</div>
                             <div class="wf-flow">
-                                <span class="wf-node active">Synthesized themes</span>
+                                <span class="wf-node">Employee post goes viral</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: ICE scoring</span>
+                                <span class="wf-node active">Claude: Repurpose for brand channels</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">PM + Eng lead align in project</span>
+                                <span class="wf-node">Blog post + case study + ad creative</span>
                             </div>
-                            <div class="wf-row-label">Stage 3 → Spec</div>
+                            <div class="wf-row-label">Sales Enablement Flow</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Prioritized feature</span>
+                                <span class="wf-node">EGC content library</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: PRD draft</span>
+                                <span class="wf-node active">Claude: Outreach snippets per ICP</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Team review + edge cases</span>
+                                <span class="wf-node">Sales reps reference in emails/calls</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Final spec</span>
+                                <span class="wf-node output">Pipeline influenced ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 4 → Build</div>
+                            <div class="wf-row-label">Feedback Loop</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Approved spec</span>
+                                <span class="wf-node">Engagement data + comments</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Engineering builds</span>
+                                <span class="wf-node active">Claude: Audience insight extraction</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: QA test cases + docs</span>
-                            </div>
-                            <div class="wf-row-label">Stage 5 → Ship</div>
-                            <div class="wf-flow">
-                                <span class="wf-node">Feature complete</span>
-                                <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Release notes + changelog + help docs</span>
-                                <span class="wf-arrow">→</span>
-                                <span class="wf-node output">Shipped ✓</span>
+                                <span class="wf-node">Feeds next content cycle</span>
                             </div>
                         </div>
-
-                        <div class="tmpl-tip"><strong>Key Insight:</strong> When Claude writes the release notes, it already knows the user pain points (from Stage 1), the trade-offs you made (Stage 2), and the exact spec (Stage 3). Release comms that actually explain the "why" — automatically.</div>
-
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> Brand and employee content shouldn't compete — they should compound. When 5 employees share different perspectives on the same announcement, it doesn't feel like marketing. It feels like a company full of people who believe in what they're building.</div>
                     </div></div>
                 </div>
 
-                <!-- WORKFLOW: RESEARCH -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">🔍</span>
+                        <span class="acc-icon">🚀</span>
                         <div class="acc-info">
-                            <div class="acc-title">Research Team Workflow</div>
-                            <div class="acc-sub">From raw data to board-ready recommendations — 5 stages</div>
+                            <div class="acc-title">EGC → GTM Revenue Workflow</div>
+                            <div class="acc-sub">How employee content becomes pipeline and revenue</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="acc-body"><div class="acc-inner">
-
                         <div class="wf-map">
-                            <div class="wf-row-label">Stage 1 → Collect</div>
+                            <div class="wf-row-label">Top of Funnel — Awareness</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Interviews</span>
-                                <span class="wf-arrow">+</span>
-                                <span class="wf-node">Surveys</span>
-                                <span class="wf-arrow">+</span>
-                                <span class="wf-node">Reviews</span>
-                                <span class="wf-arrow">+</span>
-                                <span class="wf-node">Support data</span>
+                                <span class="wf-node">Employee thought leadership posts</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Upload to Claude project</span>
+                                <span class="wf-node">ICP sees authentic perspective</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">Trust established ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 2 → Synthesize</div>
+                            <div class="wf-row-label">Mid Funnel — Consideration</div>
                             <div class="wf-flow">
-                                <span class="wf-node active">Claude: Theme extraction</span>
+                                <span class="wf-node">Prospect follows employees</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Quote banking</span>
+                                <span class="wf-node">Sees consistent expertise</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Segment identification</span>
+                                <span class="wf-node">Engages in comments/DMs</span>
+                                <span class="wf-arrow">→</span>
+                                <span class="wf-node output">Warm lead ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 3 → Analyze</div>
+                            <div class="wf-row-label">Bottom of Funnel — Decision</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Research team validates themes</span>
+                                <span class="wf-node">Sales rep sends EGC as social proof</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Journey mapping + gap analysis</span>
+                                <span class="wf-node">Prospect already trusts the voices</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node">Cross-reference with quant data</span>
+                                <span class="wf-node output">Demo booked ✓</span>
                             </div>
-                            <div class="wf-row-label">Stage 4 → Recommend</div>
+                            <div class="wf-row-label">Post-Sale — Expansion</div>
                             <div class="wf-flow">
-                                <span class="wf-node">Validated insights</span>
+                                <span class="wf-node">Customer sees team expertise ongoing</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Prioritized recommendations</span>
+                                <span class="wf-node">Confidence in product direction</span>
                                 <span class="wf-arrow">→</span>
-                                <span class="wf-node active">Claude: Stakeholder deck</span>
-                            </div>
-                            <div class="wf-row-label">Stage 5 → Act</div>
-                            <div class="wf-flow">
-                                <span class="wf-node">Approved recommendations</span>
-                                <span class="wf-arrow">→</span>
-                                <span class="wf-node">Feed into Product Roadmap project</span>
-                                <span class="wf-arrow">→</span>
-                                <span class="wf-node output">Research → Action ✓</span>
+                                <span class="wf-node output">Retention + expansion ✓</span>
                             </div>
                         </div>
-
-                        <div class="tmpl-tip"><strong>Key Insight:</strong> The Research project feeds directly into the Product Roadmap project. When the PM asks "What evidence supports this feature?", Claude can reference the actual customer quotes and data — because it's all connected.</div>
-
+                        <div class="tmpl-tip"><strong>Key Insight:</strong> The most powerful sales motion is when the prospect has already been following your team for weeks before the first sales call. They show up pre-educated, pre-trusted, and pre-sold. That's EGC-powered GTM.</div>
                     </div></div>
                 </div>
 
@@ -852,19 +796,18 @@ Update the project context with these decisions and action items so they carry f
 <section class="sc" id="examples">
     <div class="ctn">
         <div class="reveal">
-            <span class="sl">03 — Real Examples & Outputs</span>
-            <h2>Not theory — actual outputs we've shipped.</h2>
-            <p class="bt">Three case studies from our team showing exactly what went in, what came out, and the results.</p>
+            <span class="sl">03 — Real EGC Examples & Results</span>
+            <h2>What happens when employees become the content engine.</h2>
+            <p class="bt">Three case studies from our EGC program showing what went in, what came out, and the GTM impact.</p>
 
             <div class="acc">
 
-                <!-- EXAMPLE 1 -->
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">📝</span>
+                        <span class="acc-icon">🎤</span>
                         <div class="acc-info">
-                            <div class="acc-title">Turned 1 Product Launch Into 47 Content Pieces</div>
-                            <div class="acc-sub">Content Strategy Engine in action</div>
+                            <div class="acc-title">5 Employees Generated More Reach Than Our Brand Account in 30 Days</div>
+                            <div class="acc-sub">Employee Thought Leadership Engine in action</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -872,59 +815,108 @@ Update the project context with these decisions and action items so they carry f
 
                         <div class="ex-card">
                             <div class="ex-label">The Setup</div>
-                            <div class="ex-body">We were launching a new enterprise collaboration tier. Normally this would take the content team 2-3 weeks: brief the writers, wait for drafts, do rounds of revisions, then manually repurpose for each channel. Instead, we created a single Claude Cowork project, uploaded the product brief, feature spec, customer testimonials, and competitive positioning doc.</div>
+                            <div class="ex-body">We selected 5 employees across engineering, product, customer success, and marketing. None of them were "content people" — one had literally never posted on LinkedIn. We created individual Cowork projects for each, ran 15-minute voice note sessions to extract their expertise, and used Template 1 to generate a month of content for each person.</div>
                         </div>
 
                         <div class="ex-card">
-                            <div class="ex-label">What We Fed In</div>
+                            <div class="ex-label">What We Fed Into Claude Cowork</div>
                             <div class="ex-body">
-                                → Product launch brief (2 pages)<br>
-                                → Feature spec with screenshots<br>
-                                → 8 customer testimonials from beta users<br>
-                                → Competitive analysis (us vs. 3 competitors)<br>
-                                → Brand voice guidelines<br>
-                                → Past top-performing content (5 blog posts, 10 LinkedIn posts with engagement data)
+                                → Each employee's LinkedIn profile and past content (if any)<br>
+                                → 15-minute voice note transcripts per person (their hot takes, stories, frameworks)<br>
+                                → Company messaging guidelines and positioning doc<br>
+                                → Top-performing content from our industry (for format inspiration, not copying)<br>
+                                → Each employee's audience data (follower count, demographics)
                             </div>
                         </div>
 
                         <div class="ex-card">
                             <div class="ex-label">What Came Out</div>
                             <div class="ex-body">
-                                → 3 long-form blog posts (1,500-2,500 words each) with SEO titles, meta descriptions, and internal linking<br>
-                                → 12 LinkedIn posts — mix of storytelling, data-driven, and controversial takes<br>
-                                → 5-email nurture sequence with A/B subject lines<br>
-                                → 1 Twitter/X thread (12 tweets) that got 340K impressions<br>
-                                → 3 short-form video scripts (60-second format)<br>
-                                → 15 social media variations for paid ads (headline + body + CTA combinations)<br>
-                                → 4 case study outlines based on the beta testimonials<br>
-                                → 1 webinar outline with slide structure and talk track<br>
-                                → 4-week content calendar with posting schedule
+                                → 60 unique LinkedIn posts across 5 employees (12 each, tailored to each voice)<br>
+                                → Every post sounded like the employee, not like marketing — we had colleagues DM asking "did you write this yourself?" (they did, with AI help)<br>
+                                → The engineering VP's "Here's why we killed our most popular feature" post hit 287K impressions<br>
+                                → The CS Lead's customer story series drove 14 inbound DMs from target accounts<br>
+                                → The first-time poster went from 400 connections to 2,100 followers in 30 days
                             </div>
                         </div>
 
                         <div class="ex-metrics">
-                            <div class="ex-metric"><div class="ex-metric-label">Content pieces</div><div class="ex-metric-val">47</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Time to produce</div><div class="ex-metric-val">1 afternoon</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Team members involved</div><div class="ex-metric-val">2</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Revision rounds</div><div class="ex-metric-val">1</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Combined EGC reach</div><div class="ex-metric-val">1.2M impressions</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Brand account reach (same period)</div><div class="ex-metric-val">180K impressions</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Avg. time per employee per week</div><div class="ex-metric-val">45 minutes</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Inbound demos attributed</div><div class="ex-metric-val">23</div></div>
                         </div>
 
                         <div class="ex-before-after">
-                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>2-3 weeks, 5 people, multiple tools</div>
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>Brand account only — 180K reach/month, 0 inbound from social</div>
                             <div class="ex-ba-arrow">→</div>
-                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>1 afternoon, 2 people, one workspace</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>5 employee voices — 1.2M reach/month, 23 demos</div>
                         </div>
 
                     </div></div>
                 </div>
 
-                <!-- EXAMPLE 2 -->
+                <div class="acc-item">
+                    <button class="acc-head" onclick="toggleAcc(this)">
+                        <span class="acc-icon">🧲</span>
+                        <div class="acc-info">
+                            <div class="acc-title">Launched Product Tier With Zero Paid Spend — 147 Demos in 8 Weeks</div>
+                            <div class="acc-sub">EGC-Powered GTM Campaign in action</div>
+                        </div>
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="acc-body"><div class="acc-inner">
+
+                        <div class="ex-card">
+                            <div class="ex-label">The Setup</div>
+                            <div class="ex-body">We were launching a new enterprise tier. Marketing budget was tight — leadership wanted to see if we could drive demos without paid ads. We used Template 2 to build an entire GTM campaign powered by employee voices. 8 employees participated across product, engineering, sales, and leadership. The campaign ran for 8 weeks with a coordinated content cadence.</div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What We Fed Into Claude Cowork</div>
+                            <div class="ex-body">
+                                → Product launch brief and feature spec<br>
+                                → All 8 employee voice profiles (from existing Cowork projects)<br>
+                                → ICP research: who we're targeting, what they care about, where they spend time<br>
+                                → Competitive positioning analysis<br>
+                                → Sales team's top objections from the field<br>
+                                → Beta customer feedback and testimonials
+                            </div>
+                        </div>
+
+                        <div class="ex-card">
+                            <div class="ex-label">What Came Out</div>
+                            <div class="ex-body">
+                                → 8-week content calendar with 4-6 posts per employee = 320+ pieces of coordinated EGC<br>
+                                → Each employee covered a different angle: CTO talked architecture, PM talked workflow, CS talked customer wins, CEO talked vision<br>
+                                → Engagement cascades — when one employee posted, 3 others engaged within the hour, boosting reach by 5-8x<br>
+                                → Sales reps used employee posts as "warm intro" material: "Did you see Marcus's post about X? That's exactly the problem we solve."<br>
+                                → Week 3 "viral moment": our Head of Eng's post comparing our approach vs. competitors hit 450K impressions and was reshared by 3 industry analysts
+                            </div>
+                        </div>
+
+                        <div class="ex-metrics">
+                            <div class="ex-metric"><div class="ex-metric-label">Qualified demos</div><div class="ex-metric-val">147</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Paid ad spend</div><div class="ex-metric-val">$0</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Pipeline generated</div><div class="ex-metric-val">$2.1M</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Cost per demo</div><div class="ex-metric-val">~$0 (employee time only)</div></div>
+                        </div>
+
+                        <div class="ex-before-after">
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Previous launch</div>$85K paid spend, 94 demos, $640K pipeline</div>
+                            <div class="ex-ba-arrow">→</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">EGC launch</div>$0 paid spend, 147 demos, $2.1M pipeline</div>
+                        </div>
+
+                    </div></div>
+                </div>
+
                 <div class="acc-item">
                     <button class="acc-head" onclick="toggleAcc(this)">
                         <span class="acc-icon">🔍</span>
                         <div class="acc-info">
-                            <div class="acc-title">Synthesized 83 Customer Interviews in 3 Hours</div>
-                            <div class="acc-sub">Customer Research Synthesizer in action</div>
+                            <div class="acc-title">Turned 83 Customer Interviews Into EGC That Closed 6 Enterprise Deals</div>
+                            <div class="acc-sub">Voice-of-Customer → EGC Converter in action</div>
                         </div>
                         <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -932,103 +924,42 @@ Update the project context with these decisions and action items so they carry f
 
                         <div class="ex-card">
                             <div class="ex-label">The Setup</div>
-                            <div class="ex-body">Our trial-to-paid conversion dropped 15% in Q2. We had tons of data but no time to process it — 83 customer interviews, 847 NPS responses, 156 support tickets from churned accounts, and 12 exit interviews. Previously, a research consultant quoted us 4 weeks and $18K to synthesize this. We uploaded everything to a Claude Cowork project instead.</div>
+                            <div class="ex-body">We had 83 customer interviews sitting in a folder, unprocessed. Classic research graveyard. We used Template 3 to synthesize the research AND convert the best insights into employee content — stories told by the CS, product, and sales people who actually worked with these customers.</div>
                         </div>
 
                         <div class="ex-card">
-                            <div class="ex-label">What We Fed In</div>
+                            <div class="ex-label">What We Fed Into Claude Cowork</div>
                             <div class="ex-body">
-                                → 83 interview transcripts (Zoom auto-transcripts, ~45 min each)<br>
-                                → NPS survey export (847 responses with open-text comments)<br>
-                                → 156 support tickets tagged "churned" from Intercom<br>
-                                → 12 exit interview transcripts<br>
-                                → Product analytics summary (activation funnel, feature usage)<br>
-                                → Previous quarter's research findings (for comparison)
+                                → 83 customer interview transcripts<br>
+                                → NPS survey (847 responses with open-text comments)<br>
+                                → 12 churned-customer exit interviews<br>
+                                → Employee voice profiles for 4 content creators (CS Lead, PM, Sales VP, CTO)<br>
+                                → Current sales enablement materials (to identify gaps)
                             </div>
                         </div>
 
                         <div class="ex-card">
                             <div class="ex-label">What Came Out</div>
                             <div class="ex-body">
-                                → Executive summary identifying the core issue: onboarding complexity was the #1 churn driver (not pricing, which is what we assumed)<br>
-                                → 9 distinct themes, ranked by frequency and severity, each with 3-5 supporting verbatim quotes<br>
-                                → 4 user segments with detailed personas, goals, and frustrations<br>
-                                → Full journey map showing 6 friction points — 3 of which we had no idea existed<br>
-                                → Prioritized recommendation list: #1 was "simplify the first-run experience" which we shipped in 3 weeks<br>
-                                → 15-slide leadership deck with speaker notes<br>
-                                → Quote bank of 200+ organized quotes the sales team now uses in calls
+                                → Full research synthesis (themes, segments, journey map) in 3 hours instead of 4 weeks<br>
+                                → 16 employee content pieces — each one a real customer story told through the lens of the employee who lived it<br>
+                                → The CS Lead's "I stayed on a call for 3 hours with a customer who was about to churn. Here's what I learned..." series drove 47 DMs from ICP accounts<br>
+                                → Sales team repurposed 8 posts as social proof in outreach — "Our Head of Product just wrote about exactly this problem..."<br>
+                                → 6 enterprise prospects who were "evaluating competitors" cited employee posts as the reason they chose us in their post-sale survey
                             </div>
                         </div>
 
                         <div class="ex-metrics">
-                            <div class="ex-metric"><div class="ex-metric-label">Data points processed</div><div class="ex-metric-val">1,098</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Time to insight</div><div class="ex-metric-val">3 hours</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Key finding</div><div class="ex-metric-val">Onboarding ≠ Pricing</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Conversion recovery</div><div class="ex-metric-val">+22% in 6 weeks</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Customer data points processed</div><div class="ex-metric-val">1,098</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">EGC pieces from research</div><div class="ex-metric-val">16</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Enterprise deals influenced</div><div class="ex-metric-val">6</div></div>
+                            <div class="ex-metric"><div class="ex-metric-label">Revenue attributed</div><div class="ex-metric-val">$840K ARR</div></div>
                         </div>
 
                         <div class="ex-before-after">
-                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>4 weeks + $18K consultant quote</div>
+                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>Research sits in a folder. No content. No sales use.</div>
                             <div class="ex-ba-arrow">→</div>
-                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>3 hours, done in-house, better output</div>
-                        </div>
-
-                    </div></div>
-                </div>
-
-                <!-- EXAMPLE 3 -->
-                <div class="acc-item">
-                    <button class="acc-head" onclick="toggleAcc(this)">
-                        <span class="acc-icon">🚀</span>
-                        <div class="acc-info">
-                            <div class="acc-title">Built Q2 Campaign Strategy in a Single Session</div>
-                            <div class="acc-sub">Campaign Brainstorm Accelerator in action</div>
-                        </div>
-                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="acc-body"><div class="acc-inner">
-
-                        <div class="ex-card">
-                            <div class="ex-label">The Setup</div>
-                            <div class="ex-body">Marketing, product marketing, and sales needed to align on the Q2 campaign. Previously this was 3 separate meetings: brainstorm, alignment, and planning — spread over 2 weeks. We booked one 90-minute session, opened a shared Claude Cowork project with all three teams present, and ran the Campaign Brainstorm template live.</div>
-                        </div>
-
-                        <div class="ex-card">
-                            <div class="ex-label">What We Fed In</div>
-                            <div class="ex-body">
-                                → Q1 campaign results (what worked, what didn't, CAC by channel)<br>
-                                → Q2 objectives and targets from leadership<br>
-                                → Updated ICPs from the research synthesis (from Example 2 above — same project ecosystem)<br>
-                                → Competitor campaign screenshots and positioning<br>
-                                → Budget allocation framework<br>
-                                → Sales team's top 5 objections from the field
-                            </div>
-                        </div>
-
-                        <div class="ex-card">
-                            <div class="ex-label">What Came Out</div>
-                            <div class="ex-body">
-                                → 5 distinct campaign concepts — the team voted on #2 ("The Team Multiplier") in real-time<br>
-                                → Full messaging framework: awareness → consideration → decision, with copy for each stage<br>
-                                → Channel strategy with budget splits and weekly targets<br>
-                                → 8-week content calendar with specific deliverables and owners<br>
-                                → Objection-handling playbook (tied directly to the sales objections we uploaded)<br>
-                                → Measurement framework with KPIs, weekly review cadence, and a "kill criteria" — if metrics hit X by week 3, we pivot<br>
-                                → Creative brief for the design team, ready to hand off immediately
-                            </div>
-                        </div>
-
-                        <div class="ex-metrics">
-                            <div class="ex-metric"><div class="ex-metric-label">Meetings eliminated</div><div class="ex-metric-val">3 → 1</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Time to complete strategy</div><div class="ex-metric-val">90 minutes</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Departments aligned</div><div class="ex-metric-val">3</div></div>
-                            <div class="ex-metric"><div class="ex-metric-label">Ready to execute</div><div class="ex-metric-val">Same day</div></div>
-                        </div>
-
-                        <div class="ex-before-after">
-                            <div class="ex-ba-box ex-before"><div class="ex-ba-label">Before</div>3 meetings over 2 weeks, misalignment</div>
-                            <div class="ex-ba-arrow">→</div>
-                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>1 session, full alignment, ready to ship</div>
+                            <div class="ex-ba-box ex-after"><div class="ex-ba-label">After</div>Research → EGC → Pipeline → $840K ARR</div>
                         </div>
 
                     </div></div>
@@ -1042,112 +973,112 @@ Update the project context with these decisions and action items so they carry f
 <div class="dv"></div>
 
 <!-- ============================================================ -->
-<!-- SECTION 4: IMPLEMENTATION PLAN -->
+<!-- SECTION 4: IMPLEMENTATION -->
 <!-- ============================================================ -->
 <section class="sc" id="plan">
     <div class="ctn">
         <div class="reveal">
-            <span class="sl">04 — 7-Day Implementation Plan</span>
-            <h2>Go from zero to fully operational in one week.</h2>
-            <p class="bt">A day-by-day plan with specific tasks. Follow the steps, ship the system.</p>
+            <span class="sl">04 — 7-Day EGC Launch Plan</span>
+            <h2>Go from zero to a live EGC program in one week.</h2>
+            <p class="bt">A day-by-day plan with specific tasks. By Day 7, your employees are creating content that powers your GTM.</p>
 
             <div class="tl">
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 1 — Foundation</div>
-                    <div class="tl-title">Set Up Your Workspace Architecture</div>
-                    <div class="tl-desc">Build the project structure your team will live in.</div>
+                    <div class="tl-day">Day 1 — Select & Structure</div>
+                    <div class="tl-title">Choose Your First EGC Creators & Build the Workspace</div>
+                    <div class="tl-desc">Start with 3-5 employees who have domain expertise and willingness (not follower count).</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Create your Claude Cowork team workspace</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Create 4 core projects: "Content Engine", "Product Roadmap", "Research Hub", "Team Syncs"</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Upload brand voice doc, audience personas, and company overview to each relevant project</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Invite your team — assign at least 2 people per project to start</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Identify 3-5 employees across different functions (eng, product, CS, sales, leadership)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create a Claude Cowork project for each employee: "EGC — [Name]"</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create a shared project: "EGC Program Hub" (for coordination and analytics)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload company messaging guidelines, brand voice doc, and ICP research to the Hub</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 2 — Context Loading</div>
-                    <div class="tl-title">Feed Claude Everything It Needs to Be Useful</div>
-                    <div class="tl-desc">This is the step most teams skip — and why their AI results are mediocre.</div>
+                    <div class="tl-day">Day 2 — Extract & Profile</div>
+                    <div class="tl-title">Capture Each Employee's Unique Voice and Expertise</div>
+                    <div class="tl-desc">This is the most important step. Garbage in, garbage out. Good voice notes in, magic out.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Upload your top 10 performing content pieces to the Content Engine project</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Upload customer research, support ticket exports, and NPS data to the Research Hub</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Upload existing product roadmap, feature specs, and sprint retros to Product Roadmap</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Add competitor analysis docs and positioning to relevant projects</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Test each project with a simple question to verify Claude has absorbed the context</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run 15-min voice note sessions with each employee: "What do you know that most people don't?"</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload transcripts + their LinkedIn profiles + any past content to their individual projects</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Upload top-performing EGC examples from your industry (for format inspiration)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 5 (Onboarding Kit) for each employee — personalized to their voice</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 3 — First Templates</div>
-                    <div class="tl-title">Run Your First Two Templates on Real Work</div>
-                    <div class="tl-desc">Don't practice — use real projects. You'll see value immediately.</div>
+                    <div class="tl-day">Day 3 — Generate</div>
+                    <div class="tl-title">Create the First Month of Content for Every Employee</div>
+                    <div class="tl-desc">This is where the leverage kicks in. One afternoon, 60+ pieces of content.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 1 (Content Strategy Engine) on an upcoming launch or campaign</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 5 (Weekly Team Sync) for your next team meeting</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Have each team member interact with the project — ask follow-up questions, request iterations</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Document what surprised you (good and bad) — this informs Day 5 optimization</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 1 (Thought Leadership Engine) for each employee</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Review outputs — flag any posts that need more personal anecdotes</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Share drafts with each employee for personalization (they add 2-3 sentences per post)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Optimize LinkedIn profiles using the onboarding kit recommendations</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 4 — Deeper Workflows</div>
-                    <div class="tl-title">Run the Remaining Templates</div>
-                    <div class="tl-desc">Now that the team has muscle memory, tackle the complex ones.</div>
+                    <div class="tl-day">Day 4 — Coordinate</div>
+                    <div class="tl-title">Build the Engagement Cascade & Publishing Calendar</div>
+                    <div class="tl-desc">Individual posts are good. Coordinated EGC is a force multiplier.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 2 (Product Roadmap Builder) with your PM and eng lead</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 3 (Customer Research Synthesizer) on any existing research data</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 4 (Campaign Brainstorm) with cross-functional team present</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Notice how the projects start connecting — research informs product informs content</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Map out the 4-week publishing calendar in the EGC Program Hub</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Set up engagement cascades: when Employee A posts, Employees B+C engage within 1 hour</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Brief the sales team: "Here's what's coming — here's how to use it in outreach"</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create a shared Slack channel or notification system for "Employee X just posted — go engage"</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 5 — Optimize</div>
-                    <div class="tl-title">Customize and Create Your Own Templates</div>
-                    <div class="tl-desc">Adapt the system to your team's specific needs.</div>
+                    <div class="tl-day">Day 5 — Launch</div>
+                    <div class="tl-title">First Posts Go Live</div>
+                    <div class="tl-desc">Start with the introduction posts — employees announcing their new content focus.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Modify prompts based on Day 3-4 learnings — add your terminology, adjust output formats</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Create 1-2 custom templates for workflows unique to your team</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Set up project naming conventions and folder structure for scale</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Identify which team members are power users — they'll train the rest</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Each employee publishes Post #1 (the introduction/hot take)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Execute the engagement cascade — team engages within 60 minutes</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Monitor comments and help employees respond (use Claude for reply suggestions)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Celebrate wins in the team channel — screenshot impressions, share positive comments</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 6 — Integrate</div>
-                    <div class="tl-title">Connect Cowork to Your Existing Stack</div>
-                    <div class="tl-desc">Make Claude Cowork the hub, not another silo.</div>
+                    <div class="tl-day">Day 6 — Measure</div>
+                    <div class="tl-title">First Performance Check & Quick Wins</div>
+                    <div class="tl-desc">48 hours of data is enough to spot early patterns.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Establish a workflow for moving outputs from Cowork → your publishing tools</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Set up a cadence: when does the team update project context? (Weekly? After each sprint?)</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Create a "New Hire Onboarding" project so new team members can get up to speed via Claude</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Define what stays in Cowork vs. what lives in other tools</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Pull analytics for all Day 5 posts</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Run Template 4 (Performance Analyzer) on early data</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Identify which posts over-performed — create more in that style immediately</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Adjust tomorrow's posts based on learnings</div>
                     </div>
                 </div>
 
                 <div class="tl-s">
                     <div class="tl-dot"></div>
-                    <div class="tl-day">Day 7 — Launch</div>
-                    <div class="tl-title">You're Operational. Now Scale.</div>
-                    <div class="tl-desc">The system is live. Here's how to keep the momentum.</div>
+                    <div class="tl-day">Day 7 — Systematize</div>
+                    <div class="tl-title">You Have a Running EGC Program. Now Make It Permanent.</div>
+                    <div class="tl-desc">The system is live. Lock in the habits that make it self-sustaining.</div>
                     <div class="tl-tasks">
-                        <div class="tl-task"><span class="tl-check">✓</span>Run your first fully AI-augmented team sync using Template 5</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Measure: count hours saved this week vs. last week on equivalent work</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Share wins internally — nothing drives adoption like visible results</div>
-                        <div class="tl-task"><span class="tl-check">✓</span>Set a 30-day review to assess: what's working, what's not, what to automate further</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Set up a bi-weekly "EGC review" using Template 4 (15 minutes, data-driven)</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Create a monthly voice note cadence — 15 minutes per employee to fuel new content</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Connect the VoC pipeline (Template 3) so customer insights auto-feed into EGC</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Plan to add 2-3 new employees to the program next month</div>
+                        <div class="tl-task"><span class="tl-check">✓</span>Share the first week's results with leadership — the ROI case makes itself</div>
                     </div>
                 </div>
             </div>
 
             <div class="stat">
-                <div class="stat-n">3 → 1</div>
-                <div class="stat-d">What took 3 meetings now takes 1 hour.</div>
+                <div class="stat-n">6.7x</div>
+                <div class="stat-d">Employee content gets 6.7x more reach than brand content. Your team is your best GTM channel.</div>
             </div>
 
         </div>
@@ -1161,9 +1092,9 @@ Update the project context with these decisions and action items so they carry f
     <div class="ctn">
         <div class="reveal">
             <div class="cta-card">
-                <span class="sl">Ready to Transform Your Team?</span>
-                <h2>Stop using AI as a solo tool.<br>Start using it as a <span style="color:var(--ac2)">team multiplier.</span></h2>
-                <p class="bt" style="max-width:480px;margin:0 auto 36px">If you're still leaving money on the table with basic AI usage, let's fix that. Learn how AI-powered EGC and GTM can revolutionize your workflow.</p>
+                <span class="sl">Ready to Launch Your EGC Program?</span>
+                <h2>Your employees' voices are your most<br><span style="color:var(--ac2)">powerful GTM channel.</span></h2>
+                <p class="bt" style="max-width:500px;margin:0 auto 36px">Stop relying on brand accounts and paid ads. Learn how AI-powered Employee-Generated Content can drive more pipeline than your entire marketing budget.</p>
                 <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" class="cta-btn" target="_blank" rel="noopener">
                     Book a Demo
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1176,7 +1107,7 @@ Update the project context with these decisions and action items so they carry f
 
 <footer>
     <div class="ctn">
-        <p class="ft">Built with conviction. Powered by <a href="https://calendar.app.google/SDA5TMRMbqbPQWEn7" target="_blank" rel="noopener">AI EGC & GTM</a>.</p>
+        <p class="ft">Built with conviction. Powered by <a href="https://rallyup.team" target="_blank" rel="noopener">rallyup.team</a></p>
     </div>
 </footer>
 
@@ -1186,43 +1117,21 @@ function toggleAcc(btn){
     const body=item.querySelector('.acc-body');
     const inner=item.querySelector('.acc-inner');
     const isOpen=item.classList.contains('open');
-
-    // Close all others in same accordion
     item.closest('.acc').querySelectorAll('.acc-item.open').forEach(o=>{
-        if(o!==item){
-            o.classList.remove('open');
-            o.querySelector('.acc-body').style.maxHeight='0';
-        }
+        if(o!==item){o.classList.remove('open');o.querySelector('.acc-body').style.maxHeight='0'}
     });
-
-    if(isOpen){
-        item.classList.remove('open');
-        body.style.maxHeight='0';
-    }else{
-        item.classList.add('open');
-        body.style.maxHeight=inner.scrollHeight+'px';
-    }
+    if(isOpen){item.classList.remove('open');body.style.maxHeight='0'}
+    else{item.classList.add('open');body.style.maxHeight=inner.scrollHeight+'px'}
 }
-
 function copyPrompt(id,btn){
     const el=document.getElementById(id);
-    // Get text content excluding the button
     const clone=el.cloneNode(true);
-    const btns=clone.querySelectorAll('.copy-btn');
-    btns.forEach(b=>b.remove());
-    const text=clone.textContent.trim();
-
-    navigator.clipboard.writeText(text).then(()=>{
-        btn.textContent='Copied!';
-        btn.classList.add('copied');
-        setTimeout(()=>{
-            btn.textContent='Copy';
-            btn.classList.remove('copied');
-        },2000);
+    clone.querySelectorAll('.copy-btn').forEach(b=>b.remove());
+    navigator.clipboard.writeText(clone.textContent.trim()).then(()=>{
+        btn.textContent='Copied!';btn.classList.add('copied');
+        setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied')},2000);
     });
 }
-
-// Scroll reveal
 const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
