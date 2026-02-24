@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Cowork Just 10x'd My Team's Productivity</title>
-    <meta name="description" content="How we moved our entire workflow to Claude Cowork and efficiency skyrocketed. Get the complete setup guide with 5 ready-to-use templates.">
-    <meta property="og:title" content="Claude Cowork Just 10x'd My Team's Productivity">
-    <meta property="og:description" content="Most teams are using AI wrong. Here's how Claude Cowork changes everything.">
+    <title>Claude Cowork Setup Guide — 10x Your Team's Productivity</title>
+    <meta name="description" content="The complete Claude Cowork setup guide: 5 templates, workflow maps, real examples, and a step-by-step implementation plan.">
+    <meta property="og:title" content="Claude Cowork Setup Guide — 10x Your Team's Productivity">
+    <meta property="og:description" content="5 ready-to-use templates, workflow maps, real examples, and a step-by-step implementation plan.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -29,7 +29,7 @@
             --accent-dim: #7c3aed;
             --accent-glow: rgba(192, 132, 252, 0.15);
             --green: #4ade80;
-            --green-dim: rgba(74, 222, 128, 0.1);
+            --green-dim: rgba(74, 222, 128, 0.08);
             --orange: #fb923c;
             --blue: #60a5fa;
         }
@@ -45,10 +45,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* === AMBIENT BACKGROUND === */
+        /* === AMBIENT === */
         .ambient-bg {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
@@ -64,7 +64,6 @@
             width: 600px; height: 600px;
             background: var(--accent);
             top: -200px; left: -100px;
-            animation-delay: 0s;
         }
         .ambient-bg .orb:nth-child(2) {
             width: 500px; height: 500px;
@@ -79,7 +78,6 @@
             bottom: -100px; left: 30%;
             animation-delay: -14s;
         }
-
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30px, -40px) scale(1.05); }
@@ -142,7 +140,7 @@
 
         /* === HERO === */
         .hero {
-            padding: 80px 0 60px;
+            padding: 80px 0 64px;
         }
         .hero-badge {
             display: inline-flex;
@@ -168,9 +166,8 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.5); }
         }
-
         h1 {
-            font-size: clamp(36px, 6vw, 52px);
+            font-size: clamp(34px, 6vw, 50px);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.03em;
@@ -183,7 +180,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero-sub {
             font-size: 18px;
             color: var(--text-secondary);
@@ -191,24 +187,17 @@
             max-width: 580px;
             animation: fadeInUp 0.6s ease-out 0.2s both;
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* === DIVIDER === */
+        /* === SHARED === */
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
-            margin: 0;
         }
-
-        /* === PROBLEM SECTION === */
-        .section {
-            padding: 64px 0;
-        }
-
+        .section { padding: 64px 0; }
         .section-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
@@ -218,7 +207,6 @@
             letter-spacing: 0.1em;
             margin-bottom: 20px;
         }
-
         h2 {
             font-size: clamp(26px, 4vw, 34px);
             font-weight: 700;
@@ -226,7 +214,6 @@
             letter-spacing: -0.02em;
             margin-bottom: 20px;
         }
-
         .body-text {
             font-size: 16px;
             color: var(--text-secondary);
@@ -234,101 +221,206 @@
             margin-bottom: 16px;
         }
 
-        .callout-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--orange);
-            border-radius: 0 12px 12px 0;
-            padding: 24px 28px;
-            margin: 32px 0;
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        .callout-box strong {
-            color: var(--text-primary);
-        }
-
-        /* === FEATURES === */
-        .features-grid {
+        /* === TEMPLATE CARDS === */
+        .templates-grid {
             display: grid;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            transition: all 0.3s ease;
-            position: relative;
+            gap: 2px;
+            margin: 36px 0 0;
+            background: var(--border);
+            border-radius: 20px;
             overflow: hidden;
+            border: 1px solid var(--border);
         }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .template-card {
+            background: var(--bg-card);
+            padding: 32px 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: background 0.2s;
         }
-        .feature-card:hover {
-            border-color: var(--border-bright);
-            background: var(--bg-card-hover);
-            transform: translateY(-2px);
+        .template-card:hover { background: var(--bg-card-hover); }
+        .template-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-glow);
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-        .feature-icon {
-            font-size: 20px;
-            margin-bottom: 14px;
-            display: block;
-        }
-        .feature-title {
+        .template-info { flex: 1; }
+        .template-title {
             font-size: 16px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.01em;
         }
-        .feature-desc {
+        .template-desc {
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.6;
         }
 
-        /* === USE CASES === */
-        .use-cases {
+        /* === WORKFLOW SECTION === */
+        .workflow-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 24px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
         }
-        .use-case {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 20px;
+        @media (max-width: 600px) {
+            .workflow-grid { grid-template-columns: 1fr; }
+        }
+        .workflow-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.2s;
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        .use-case:hover {
+        .workflow-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .workflow-card:hover {
             border-color: var(--border-bright);
-            background: var(--bg-card-hover);
+            transform: translateY(-3px);
         }
-        .use-case .icon {
-            font-size: 18px;
-            flex-shrink: 0;
+        .workflow-card:hover::before { opacity: 1; }
+        .workflow-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .workflow-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .workflow-steps {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .workflow-steps span {
+            display: block;
         }
 
-        @media (max-width: 560px) {
-            .use-cases { grid-template-columns: 1fr; }
+        /* === EXAMPLES SECTION === */
+        .example-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 30px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .example-card + .example-card { margin-top: 14px; }
+        .example-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .example-label::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .example-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .example-body {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .example-result {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--green);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* === IMPLEMENTATION TIMELINE === */
+        .timeline {
+            margin-top: 36px;
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-dim), var(--green));
+            border-radius: 2px;
+        }
+        .timeline-step {
+            position: relative;
+            padding: 0 0 36px 28px;
+        }
+        .timeline-step:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -24px;
+            top: 4px;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-dim);
+            z-index: 1;
+        }
+        .timeline-step:last-child .timeline-dot {
+            border-color: var(--green);
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
+        }
+        .timeline-day {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .timeline-step:last-child .timeline-day { color: var(--green); }
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* === STAT BANNER === */
@@ -338,7 +430,7 @@
             border-radius: 20px;
             padding: 48px 40px;
             text-align: center;
-            margin: 24px 0 0;
+            margin: 48px 0 0;
             position: relative;
             overflow: hidden;
         }
@@ -365,50 +457,16 @@
             color: var(--text-secondary);
         }
 
-        /* === GUIDE SECTION === */
-        .guide-content {
-            margin-top: 28px;
-        }
-        .guide-item {
-            display: flex;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .guide-item:last-child { border-bottom: none; }
-        .guide-check {
-            width: 22px; height: 22px;
-            background: var(--green-dim);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-            font-size: 12px;
-            color: var(--green);
-        }
-        .guide-text {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        .guide-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* === CTA SECTION === */
+        /* === CTA === */
         .cta-section {
             padding: 80px 0 100px;
-            text-align: center;
         }
         .cta-card {
             background: linear-gradient(160deg, rgba(124, 58, 237, 0.12) 0%, var(--bg-card) 40%, rgba(96, 165, 250, 0.08) 100%);
             border: 1px solid var(--accent-dim);
             border-radius: 24px;
             padding: 56px 40px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -430,15 +488,11 @@
             filter: blur(150px);
             opacity: 0.06;
         }
-        .cta-card h2 {
-            font-size: clamp(26px, 4vw, 36px);
-            margin-bottom: 16px;
-        }
+        .cta-card h2 { margin-bottom: 16px; }
         .cta-card .body-text {
             max-width: 480px;
             margin: 0 auto 36px;
         }
-
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -460,13 +514,8 @@
             transform: translateY(-2px);
             box-shadow: 0 0 50px rgba(124, 58, 237, 0.5), inset 0 1px 0 rgba(255,255,255,0.15);
         }
-        .cta-button svg {
-            transition: transform 0.2s;
-        }
-        .cta-button:hover svg {
-            transform: translateX(3px);
-        }
-
+        .cta-button svg { transition: transform 0.2s; }
+        .cta-button:hover svg { transform: translateX(3px); }
         .cta-subtext {
             font-size: 13px;
             color: var(--text-muted);
@@ -488,7 +537,7 @@
             text-decoration: none;
         }
 
-        /* === SCROLL ANIMATIONS === */
+        /* === ANIMATIONS === */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -524,24 +573,59 @@
     <div class="container">
         <div class="hero-badge">
             <span class="pulse"></span>
-            Real results from our team
+            Free Setup Guide
         </div>
-        <h1>Claude Cowork Just <span class="highlight">10x'd My Team's</span> Productivity & Output</h1>
-        <p class="hero-sub">We moved our entire workflow to Claude Cowork and efficiency skyrocketed. Here's exactly how — and why most teams are getting AI completely wrong.</p>
+        <h1>Everything You Need to <span class="highlight">Implement This</span> With Your Team</h1>
+        <p class="hero-sub">I built a complete setup guide showing exactly how we did it. No fluff — just the system that 10x'd our team's productivity and output.</p>
     </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PROBLEM -->
+<!-- SECTION 1: 5 TEMPLATES -->
 <section class="section">
     <div class="container">
         <div class="reveal">
-            <span class="section-label">The Problem</span>
-            <h2>Most teams are using AI wrong.</h2>
-            <p class="body-text">They treat it like a search engine. Ask a question, get an answer, start over. Every session starts from zero — no context, no continuity, no collaboration.</p>
-            <div class="callout-box">
-                <strong>That's why adoption fails.</strong> Your team tries AI, gets mediocre results, and goes back to the old way. Not because AI isn't powerful — but because the workflow is broken.
+            <span class="section-label">01 — Ready-to-Use Templates</span>
+            <h2>5 templates you can drop in and start producing immediately.</h2>
+            <p class="body-text">No blank-page syndrome. Each template is battle-tested from our own workflow — just plug in your context and go.</p>
+
+            <div class="templates-grid">
+                <div class="template-card">
+                    <div class="template-num">01</div>
+                    <div class="template-info">
+                        <div class="template-title">Content Strategy Engine</div>
+                        <div class="template-desc">Turn a single topic into a full multi-channel content plan — blog, social, email — in under 30 minutes.</div>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-num">02</div>
+                    <div class="template-info">
+                        <div class="template-title">Product Roadmap Builder</div>
+                        <div class="template-desc">Synthesize customer feedback, market signals, and team input into a prioritized quarterly roadmap.</div>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-num">03</div>
+                    <div class="template-info">
+                        <div class="template-title">Customer Research Synthesizer</div>
+                        <div class="template-desc">Feed in raw interview notes and survey data — get structured insights, patterns, and action items.</div>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-num">04</div>
+                    <div class="template-info">
+                        <div class="template-title">Campaign Brainstorm Accelerator</div>
+                        <div class="template-desc">Go from brief to 20+ campaign concepts with messaging variants, audience angles, and creative hooks.</div>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-num">05</div>
+                    <div class="template-info">
+                        <div class="template-title">Weekly Team Sync Optimizer</div>
+                        <div class="template-desc">Pre-populate agendas, auto-summarize updates, and generate action items so meetings actually move work forward.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -549,34 +633,47 @@
 
 <div class="divider"></div>
 
-<!-- SOLUTION -->
+<!-- SECTION 2: WORKFLOW MAPS -->
 <section class="section">
     <div class="container">
         <div class="reveal">
-            <span class="section-label">The Solution</span>
-            <h2>Claude Cowork changes everything.</h2>
-            <p class="body-text">It's not a chatbot. It's a workspace where your entire team collaborates with AI. Persistent, shared, and built for real work.</p>
+            <span class="section-label">02 — Workflow Maps</span>
+            <h2>See exactly how each team function plugs in.</h2>
+            <p class="body-text">Three complete workflow maps showing how content, product, and research teams operate inside Claude Cowork — from input to shipped output.</p>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🧠</span>
-                    <div class="feature-title">Persistent Context</div>
-                    <div class="feature-desc">Claude remembers your projects, your brand, your goals. No more re-explaining everything every session.</div>
+            <div class="workflow-grid">
+                <div class="workflow-card">
+                    <span class="workflow-icon">📝</span>
+                    <div class="workflow-title">Content</div>
+                    <div class="workflow-steps">
+                        <span>Ideation →</span>
+                        <span>Briefs →</span>
+                        <span>Drafts →</span>
+                        <span>Review →</span>
+                        <span>Publish</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">👥</span>
-                    <div class="feature-title">Shared Workspaces</div>
-                    <div class="feature-desc">Your whole team works together in one space. Marketing, product, research — everyone on the same page.</div>
+                <div class="workflow-card">
+                    <span class="workflow-icon">🗺️</span>
+                    <div class="workflow-title">Product</div>
+                    <div class="workflow-steps">
+                        <span>Research →</span>
+                        <span>Prioritize →</span>
+                        <span>Spec →</span>
+                        <span>Build →</span>
+                        <span>Ship</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📋</span>
-                    <div class="feature-title">Project Management Built In</div>
-                    <div class="feature-desc">Track progress, manage deliverables, and keep work organized without switching between tools.</div>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <div class="feature-title">No More Copy-Paste</div>
-                    <div class="feature-desc">Everything lives in one place. Stop juggling tabs and losing context between tools.</div>
+                <div class="workflow-card">
+                    <span class="workflow-icon">🔍</span>
+                    <div class="workflow-title">Research</div>
+                    <div class="workflow-steps">
+                        <span>Collect →</span>
+                        <span>Synthesize →</span>
+                        <span>Analyze →</span>
+                        <span>Recommend →</span>
+                        <span>Act</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -585,68 +682,87 @@
 
 <div class="divider"></div>
 
-<!-- USE CASES -->
+<!-- SECTION 3: REAL EXAMPLES -->
 <section class="section">
     <div class="container">
         <div class="reveal">
-            <span class="section-label">How We Use It</span>
-            <h2>From strategy to execution — in one workspace.</h2>
-            <p class="body-text">Every high-leverage activity our team runs now flows through Claude Cowork.</p>
+            <span class="section-label">03 — Real Examples</span>
+            <h2>Not theory — actual outputs we've shipped.</h2>
+            <p class="body-text">Here's what this looks like in practice, pulled directly from our workspace.</p>
 
-            <div class="use-cases">
-                <div class="use-case">
-                    <span class="icon">📝</span>
-                    Content Strategy
+            <div class="example-card">
+                <div class="example-label">Content Strategy</div>
+                <div class="example-title">Turned 1 product launch into 47 pieces of content</div>
+                <div class="example-body">Fed the launch brief into our Content Strategy Engine template. Claude Cowork generated blog posts, social threads, email sequences, and ad copy — all with consistent messaging and brand voice, across the entire team.</div>
+                <div class="example-result">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    What normally takes 2 weeks → done in 1 afternoon
                 </div>
-                <div class="use-case">
-                    <span class="icon">🗺️</span>
-                    Product Roadmap
+            </div>
+
+            <div class="example-card">
+                <div class="example-label">Customer Research</div>
+                <div class="example-title">Synthesized 83 customer interviews into 5 key insights</div>
+                <div class="example-body">Uploaded raw transcripts into a shared workspace. The team collaborated with Claude to tag themes, surface patterns, and build an actionable insights deck — together, in real time.</div>
+                <div class="example-result">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    From raw data to board-ready presentation in 3 hours
                 </div>
-                <div class="use-case">
-                    <span class="icon">🔍</span>
-                    Customer Research
+            </div>
+
+            <div class="example-card">
+                <div class="example-label">Campaign Brainstorm</div>
+                <div class="example-title">Generated Q2 campaign strategy in a single working session</div>
+                <div class="example-body">Marketing, product, and sales joined one shared Cowork session. Started with objectives, iterated on concepts together with Claude, and left with a complete campaign framework including messaging, channels, and timelines.</div>
+                <div class="example-result">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    3 alignment meetings eliminated — decided in 1 hour
                 </div>
-                <div class="use-case">
-                    <span class="icon">🚀</span>
-                    Campaign Brainstorms
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: STEP BY STEP -->
+<section class="section">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">04 — Implementation Plan</span>
+            <h2>Go from zero to fully operational in one week.</h2>
+            <p class="body-text">A day-by-day plan so you're not guessing. Follow the steps, ship the system.</p>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-day">Day 1–2</div>
+                    <div class="timeline-title">Set Up Your Workspace</div>
+                    <div class="timeline-desc">Create your team workspace, configure project structure, and import the 5 templates. Get everyone access and oriented.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-day">Day 3–4</div>
+                    <div class="timeline-title">Run Your First Workflows</div>
+                    <div class="timeline-desc">Pick one real project per team. Follow the workflow maps. Ship something real so the team sees immediate value.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-day">Day 5</div>
+                    <div class="timeline-title">Build Persistent Context</div>
+                    <div class="timeline-desc">Feed Claude your brand guidelines, product docs, customer personas, and past work. This is where it stops feeling like a tool and starts feeling like a team member.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-day">Day 6–7</div>
+                    <div class="timeline-title">Scale & Optimize</div>
+                    <div class="timeline-desc">Expand to all team functions. Customize templates to your specific needs. Establish review cadences. You're now operating at 10x.</div>
                 </div>
             </div>
 
             <div class="stat-banner">
-                <div class="stat-number">3→1</div>
+                <div class="stat-number">3 → 1</div>
                 <div class="stat-desc">What took 3 meetings now takes 1 hour.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- GUIDE -->
-<section class="section">
-    <div class="container">
-        <div class="reveal">
-            <span class="section-label">Free Setup Guide</span>
-            <h2>Everything you need to implement this with your team.</h2>
-            <p class="body-text">I built a complete setup guide showing exactly how we did it. No fluff — just the system.</p>
-
-            <div class="guide-content">
-                <div class="guide-item">
-                    <div class="guide-check">✓</div>
-                    <div class="guide-text"><strong>5 ready-to-use templates</strong> — Drop them into your workspace and start producing immediately</div>
-                </div>
-                <div class="guide-item">
-                    <div class="guide-check">✓</div>
-                    <div class="guide-text"><strong>Workflow maps</strong> for content, product, and research — See exactly how each team function plugs in</div>
-                </div>
-                <div class="guide-item">
-                    <div class="guide-check">✓</div>
-                    <div class="guide-text"><strong>Real examples from our team</strong> — Not theory, actual outputs we've shipped</div>
-                </div>
-                <div class="guide-item">
-                    <div class="guide-check">✓</div>
-                    <div class="guide-text"><strong>Step-by-step implementation plan</strong> — Go from zero to fully operational in one week</div>
-                </div>
             </div>
         </div>
     </div>
@@ -681,15 +797,11 @@
 </footer>
 
 <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
